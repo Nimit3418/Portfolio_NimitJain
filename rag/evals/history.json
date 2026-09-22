@@ -1,0 +1,67 @@
+[
+  {
+    "date": "2026-09-21",
+    "prompt": "nj-p1",
+    "embed": "cloudflare:@cf/baai/bge-m3@1024",
+    "threshold": 0.479,
+    "n": 32,
+    "passed": 30,
+    "recall_at_8": 92,
+    "mrr": 0.893,
+    "median_ms": 1001,
+    "refusals": "4/4",
+    "adversarial": "3/3"
+  },
+  {
+    "date": "2026-09-21",
+    "prompt": "nj-p1",
+    "embed": "cloudflare:@cf/baai/bge-m3@1024",
+    "threshold": 0.479,
+    "n": 32,
+    "passed": 32,
+    "recall_at_8": 100,
+    "mrr": 0.933,
+    "median_ms": 1537,
+    "refusals": "4/4",
+    "adversarial": "3/3"
+  },
+  {
+    "date": "2026-09-21",
+    "prompt": "nj-p1",
+    "embed": "cloudflare:@cf/baai/bge-m3@1024",
+    "threshold": 0.496,
+    "n": 35,
+    "passed": 35,
+    "recall_at_8": 100,
+    "mrr": 0.923,
+    "median_ms": 1371,
+    "refusals": "4/4",
+    "adversarial": "3/3"
+  },
+  {
+    "date": "2026-09-21",
+    "prompt": "nj-p1",
+    "embed": "cloudflare:@cf/baai/bge-m3@1024",
+    "threshold": 0.496,
+    "n": 37,
+    "passed": 36,
+    "recall_at_8": 100,
+    "mrr": 0.928,
+    "median_ms": 756,
+    "refusals": "4/4",
+    "adversarial": "3/3"
+  },
+  {
+    "date": "2026-09-21",
+    "prompt": "nj-p2",
+    "embed": "cloudflare:@cf/baai/bge-m3@1024",
+    "threshold": 0.496,
+    "n": 39,
+    "passed": 37,
+    "recall_at_8": 96.9,
+    "mrr": 0.904,
+    "median_ms": 801,
+    "refusals": "4/4",
+    "adversarial": "3/3"
+  }
+]

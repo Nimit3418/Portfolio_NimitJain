@@ -1,0 +1,96 @@
+/* ============================================================
+   GRID VARIANT · loaded after app.css
+   Squared paper behind everything; every section sits on its own
+   sheet with a hairline edge and a soft corner. The type, the
+   motion, the pointer effects and the Creator block are unchanged.
+   ============================================================ */
+
+:root {
+  --sheet: #f7f6f2;
+  --grid-line: rgba(12, 12, 12, 0.06);
+  --radius: 14px;
+}
+
+body {
+  background-color: #efeee9;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: center top;
+}
+
+/* nav: a floating bar on the grid */
+.nav { top: 12px; margin: 12px auto 0; max-width: 1240px; height: 58px; padding: 0 10px 0 22px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(247, 246, 242, 0.9); overflow: hidden; }
+.nav-progress { left: 22px; right: 22px; width: auto; bottom: 0; }
+
+main { padding-top: 22px; }
+
+/* every section is a sheet */
+.hero, .sec { background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 40px 48px 44px; margin: 0 0 18px; }
+.sec { padding: 64px 48px 72px; }
+.sec-head { margin-bottom: 48px; }
+.sec-ink { background: var(--ink); border-color: var(--ink); }
+.sec-ink::before { display: none; }
+.sec-wipe { --wipe: 1; }
+.hero-figure::after { background: linear-gradient(180deg, transparent 55%, var(--sheet) 100%); }
+.hero-figure { border-radius: 10px; }
+
+/* the four numbers as cards, then the ticker as a dark strip */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0 0 18px; }
+.stats > div { background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 22px 24px; }
+.stats dd { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; margin: 0 0 8px; }
+.stats dt { font-size: 13px; color: var(--muted); }
+.ticker { margin: 0 0 18px; border: none; border-radius: 999px; background: var(--ink); color: var(--on-ink-dim); padding: 12px 22px; font-size: 13px; }
+.ticker-set b { color: var(--on-ink); font-size: 1rem; }
+.hero .ticker { display: none; }
+.now { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+/* work rows as cards inside the sheet */
+.filters { margin-bottom: 18px; }
+.plist { border-top: none; display: grid; gap: 12px; }
+.prow { border: 1px solid var(--line); border-radius: 10px; padding: 24px 22px; background: rgba(255, 255, 255, 0.45); transition: border-color 0.25s, background 0.25s, padding-left 0.35s var(--ease); }
+.prow:hover, .prow.is-focus { border-color: var(--ink); background: #fff; padding-left: 30px; }
+.more { margin-top: 24px; }
+
+/* changelog: same sticky numeral, on the sheet */
+.cl { border-top: none; }
+.cl-rows { padding-left: 26px; }
+
+/* about: interview, results, postmortems as two cards */
+.qa, .award-list { border-top: none; }
+.qa > div, .award-list li { border-bottom: 1px solid var(--line); }
+.pm { border-top: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pm-row { display: block; border: 1px solid var(--line-strong); border-radius: 10px; padding: 22px 24px 24px; }
+.pm-row > span { display: block; }
+.pm-k { margin-bottom: 12px; }
+.pm-was { margin-bottom: 14px; }
+.quotes { border-top: none; padding-top: 0; }
+.pq { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; background: rgba(255, 255, 255, 0.45); }
+
+/* contact: dark sheet, link cards */
+.contact-links { gap: 12px; border-top: none; margin-top: 16px; }
+.contact-links li { border: 1px solid var(--on-ink-line); border-radius: 10px; padding: 18px 20px; }
+.foot { margin-top: 56px; }
+
+/* case pages */
+.page-cs .cs { background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 44px 48px 56px; margin-top: 8px; }
+.shot img { border-radius: 8px; }
+
+@media (max-width: 1150px) { .stats { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 940px) {
+  .hero, .sec { padding: 32px 24px 36px; border-radius: 12px; }
+  .sec { padding: 48px 24px 56px; }
+  .pm { grid-template-columns: 1fr; }
+  .nav { margin-top: 8px; top: 8px; height: 54px; }
+  .page-cs .cs { padding: 28px 22px 40px; }
+}
+@media (max-width: 640px) {
+  .hero, .sec { padding: 24px 16px 28px; }
+  .sec { padding: 40px 16px 44px; }
+  .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stats > div { padding: 16px; }
+  .stats dd { font-size: 1.6rem; }
+  .ticker { border-radius: 12px; }
+  main { padding-top: 14px; }
+}

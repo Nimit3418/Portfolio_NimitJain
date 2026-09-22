@@ -1,0 +1,16 @@
+{
+  "name": "nimit-portfolio",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.10"
+  },
+  "scripts": {
+    "dev": "python3 -m http.server 4174",
+    "dev:api": "vercel dev",
+    "rag:index": "node rag/build-index.mjs",
+    "rag:calibrate": "node rag/calibrate.mjs",
+    "rag:evals": "EMBED_CACHE=rag/evals/embed-cache.json node rag/run-evals.mjs",
+    "build:work": "node scripts/build-work.mjs"
+  }
+}
