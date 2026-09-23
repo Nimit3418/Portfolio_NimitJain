@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    let _theme = localStorage.getItem("theme");
+    if (!_theme) { _theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
+    document.documentElement.setAttribute("data-theme", _theme);
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube Channel · Nimit Jain</title>
@@ -9,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/app.css?v=19">
+  <link rel="stylesheet" href="css/app.css?v=36">
   <style>
     .story-content p { margin-bottom: 1.25em; font-size: 1.15rem; line-height: 1.6; color: var(--ink); }
     .story-content h2 { font-size: 1.6rem; margin-top: 2em; margin-bottom: 0.75em; letter-spacing: -0.02em; }
@@ -24,6 +29,10 @@
       <a href="index.html#creator" class="on">Creator</a>
       <a href="index.html#about">About</a>
       <a href="index.html#contact">Contact</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </nav>
     <a class="nav-ask" href="index.html#contact">Get in touch</a>
   </header>
@@ -35,7 +44,7 @@
       </header>
       
       <div class="story-content">
-        <p>I didn’t start YouTube with a clear plan to become a content creator. It started much more naturally — with questions.</p>
+        <p>I didn’t start YouTube with a clear plan to become a content creator. It started much more naturally - with questions.</p>
         <p>Before starting college, I had a lot of doubts about what I should learn, what actually matters in the first year, which mistakes I could avoid, and how I could prepare myself better. While figuring these things out for myself, I realised that many other students were asking the same questions.</p>
         <p>That became the reason I started making videos.</p>
         <p>My goal was simple: share the things I was learning in a way that I would have found useful before starting college. Instead of making generic advice videos, I wanted to research topics properly, add my own experience where relevant, and make content that students could actually use.</p>
@@ -48,7 +57,7 @@
         <p>I handle almost everything myself.</p>
         <p>It usually starts with finding a topic worth making. I research it from different sources, understand the subject, decide what is actually useful for students, and then structure everything into a script.</p>
         <p>After that comes recording, editing, creating the thumbnail, figuring out the title and description, adding chapters where needed, and finally publishing it.</p>
-        <p>Then comes another part that I find equally interesting — looking at what happened after publishing.</p>
+        <p>Then comes another part that I find equally interesting - looking at what happened after publishing.</p>
         <p>I check how people responded, where viewers dropped off, whether the thumbnail and title worked, what people commented, and what I could change in the next video.</p>
         <p>So the process has gradually become:</p>
         <p><strong>Research → Plan → Script → Record → Edit → Package → Publish → Analyse → Improve</strong></p>
@@ -117,7 +126,7 @@
 
         <h2>Building Something of My Own</h2>
         <p>The channel is still a work in progress.</p>
-        <p>There are older videos where I can immediately see things I’d do differently today — the way I would structure the script, edit the video, design the thumbnail, or even choose the topic.</p>
+        <p>There are older videos where I can immediately see things I’d do differently today - the way I would structure the script, edit the video, design the thumbnail, or even choose the topic.</p>
         <p>But I don’t see that as wasted work.</p>
         <p>Each video is a snapshot of what I knew at that point, and each new upload gives me an opportunity to improve.</p>
         <p>That’s probably what I value most about the channel.</p>
@@ -132,5 +141,6 @@
       </div>
     </article>
   </main>
+  <script src="js/theme.js?v=36"></script>
 </body>
 </html>

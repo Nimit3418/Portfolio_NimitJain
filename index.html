@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    let _theme = localStorage.getItem("theme");
+    if (!_theme) { _theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
+    document.documentElement.setAttribute("data-theme", _theme);
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nimit Jain · grid</title>
@@ -10,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/app.css?v=19">
-  <link rel="stylesheet" href="css/grid.css?v=19">
+  <link rel="stylesheet" href="css/app.css?v=36">
+  <link rel="stylesheet" href="css/grid.css?v=36">
 </head>
 <body>
 
@@ -23,12 +28,25 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="#work">Work<kbd>1</kbd></a>
       <a href="#creator">Creator<kbd>2</kbd></a>
-      <a href="#about">About<kbd>3</kbd></a>
+      <a href="about.html">About<kbd>3</kbd></a>
       <a href="#contact">Contact<kbd>4</kbd></a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </nav>
     <button class="nav-ask" id="ask-open-nav" type="button" data-magnet aria-haspopup="dialog" aria-controls="palette">Ask me anything<kbd>/</kbd></button>
     <i class="nav-progress" id="nav-progress" aria-hidden="true"></i>
   </header>
+
+  <!-- ================= MOB NAV ================= -->
+  <nav class="mob-nav" aria-label="Mobile">
+    <a href="#work">Work</a>
+    <a href="#creator">Creator</a>
+    <a href="about.html">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
 
   <main id="top">
 
@@ -72,7 +90,7 @@
         </div>
 
         <figure class="hero-figure" data-tilt>
-          <img src="assets/img/nimit.jpg" alt="Nimit Jain" width="956" height="1280">
+          <img src="assets/img/iiii.png" alt="Nimit Jain" width="956" height="1280">
         </figure>
         <ul class="hero-tags">
           <li>Co-founder</li>
@@ -296,13 +314,13 @@
         .res-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); transition: color 0.2s; flex: 1; }
         .res-meta { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
         .res-date { font-size: 0.8rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; }
-        .res-badge { font-size: 0.75rem; font-weight: 600; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+        .res-badge { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; color: var(--gold); border: 1.5px solid var(--gold); border-radius: 999px; padding: 3px 12px; white-space: nowrap; background: rgba(201, 169, 97, 0.08); }
         .res-chevron { width: 20px; height: 20px; color: var(--faint); transition: transform 0.3s ease; flex-shrink: 0; }
         .res-item.is-open .res-chevron { transform: rotate(180deg); }
         .res-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; padding: 0 0 0 0; }
         .res-item.is-open .res-body { padding: 0 0 24px 0; }
         .res-body-inner { color: var(--muted); font-size: 1.05rem; line-height: 1.6; max-width: 65ch; }
-        .res-body-inner strong { color: var(--ink); font-weight: 500; }
+        .res-body-inner strong { color: var(--ink); font-weight: 600; font-family: var(--font-display); letter-spacing: -0.01em; }
       </style>
       <header class="sec-head">
         <h2 class="sec-title" data-mask>Results</h2>
@@ -312,7 +330,7 @@
 
         <div class="res-item">
           <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">1st Place, Noesis Hackathon — AskMyNotes AI</span>
+            <span class="res-title">1st Place, Noesis Hackathon - AskMyNotes AI</span>
             <span class="res-meta">
               <span class="res-badge">1st of ~50</span>
               <span class="res-date">Mar 2026</span>
@@ -328,7 +346,7 @@
 
         <div class="res-item">
           <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">1st Rank, SIH 2026 Internal Round — Oil Spill Detection</span>
+            <span class="res-title">1st Rank, SIH 2026 Internal Round - Oil Spill Detection</span>
             <span class="res-meta">
               <span class="res-badge">1st</span>
               <span class="res-date">Sep 2026</span>
@@ -337,14 +355,14 @@
           </div>
           <div class="res-body">
             <div class="res-body-inner">
-              Smart India Hackathon internal qualifier, Team AlgoRise (4 members). I built the <strong>AIS track reconstruction and vessel attribution module</strong> — given a detected spill, the system runs counterfactual forward simulations to rank which vessel likely caused it. All 3 attribution test cases passed. <strong>National round ahead.</strong> The takeaway: run the counterfactual, not just the backtrack.
+              Smart India Hackathon internal qualifier, Team AlgoRise (4 members). I built the <strong>AIS track reconstruction and vessel attribution module</strong> - given a detected spill, the system runs counterfactual forward simulations to rank which vessel likely caused it. All 3 attribution test cases passed. <strong>National round ahead.</strong> The takeaway: run the counterfactual, not just the backtrack.
             </div>
           </div>
         </div>
 
         <div class="res-item">
           <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">Top 2 of ~40 Teams, HackWarts — KisanMind</span>
+            <span class="res-title">Top 2 of ~40 Teams, HackWarts - KisanMind</span>
             <span class="res-meta">
               <span class="res-badge">Top 2</span>
               <span class="res-date">Apr 2026</span>
@@ -360,7 +378,7 @@
 
         <div class="res-item">
           <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">Co-founded CampusCritique — 1,100+ Visitors</span>
+            <span class="res-title">Co-founded CampusCritique - 1,100+ Visitors</span>
             <span class="res-meta">
               <span class="res-badge">Live</span>
               <span class="res-date">May 2026 –</span>
@@ -429,7 +447,7 @@
         <figure class="creator-media">
           <div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/mspVHQ6pdEs" title="YouTube video" allowfullscreen></iframe></div>
           <div style="margin-top: 24px; text-align: center;">
-            <a href="https://www.youtube.com/@NimitJain18" target="_blank" rel="noopener" style="color: var(--paper); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
+            <a href="https://www.youtube.com/@NimitJain18" target="_blank" rel="noopener" style="color: var(--on-ink); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
               Visit the channel 
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 2px;">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -444,19 +462,21 @@
     <!-- ================= ABOUT ================= -->
     <section class="sec" id="about">
       <header class="sec-head">
-        <h2 class="sec-title" data-mask>About</h2>
+        <h2 class="sec-title" data-mask><a href="about.html" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">About</a></h2>
         <p class="sec-lede">Eight questions, answered straight.</p>
       </header>
 
-      <div class="qa" data-reveal>
-        <div><p class="q">Who are you, in one breath?</p><p class="a">Second-year B.Tech CS (AI) at Vedam School of Technology, Pune — originally from Delhi. I co-founded CampusCritique, run a YouTube channel that has guided 38+ students into colleges, and build full-stack products in React, Next.js, and Python.</p></div>
-        <div><p class="q">Why students?</p><p class="a">I took admission at Vedam only after getting answers to a ton of questions the brochure never covered. Nobody should have to dig that hard. CampusCritique and the channel exist so the next person does not.</p></div>
-        <div><p class="q">What are you good at?</p><p class="a">Shipping frontends with the product thinking around them. My stack is React, Next.js, Supabase, Tailwind, and REST APIs — but I also handle video production and visual design, which turn out to matter more than I expected when building things people actually use.</p></div>
-        <div><p class="q">What went wrong recently?</p><p class="a">Built the full UI and data logic for LeetCode Analytics, then found LeetCode's API has paid limits. Now feasibility gets checked before the build starts. And at Noesis the connection dropped right before submission with the demo broken. We split roles, debugged in parallel and presented calm. We won.</p></div>
-        <div><p class="q">What are you learning?</p><p class="a">Deepening my backend skills across Node.js and Express, exploring machine learning with Python, and solving data structures and algorithms problems in Java as part of my daily practice.</p></div>
-        <div><p class="q">Standing?</p><p class="a">9.45 CGPA, ranked 7th in semester one. Previously at Ramjas School, New Delhi (Class XII, 2025). Completed Forage virtual experience programmes with Goldman Sachs and Deloitte, and participated in Scaler's Young Innovator Challenge 4.0.</p></div>
-        <div><p class="q">Who do you mentor?</p><p class="a">Through Campus Connect, I've completed 8+ paid one-to-one mentorship sessions and guided 38+ students through their college application and decision-making process.</p></div>
-        <div><p class="q">What next?</p><p class="a">Looking for an internship in frontend engineering, product, or AI — with a team that ships real products. I reply within a day.</p></div>
+      <div class="qa">
+        <div class="qa-inner">
+          <div><p class="q">Who are you, in one breath?</p><p class="a">Second-year B.Tech CS (AI) at Vedam School of Technology, Pune - originally from Delhi. I co-founded CampusCritique, run a YouTube channel that has guided 38+ students into colleges, and build full-stack products in React, Next.js, and Python.</p></div>
+          <div><p class="q">Why students?</p><p class="a">I took admission at Vedam only after getting answers to a ton of questions the brochure never covered. Nobody should have to dig that hard. CampusCritique and the channel exist so the next person does not.</p></div>
+          <div><p class="q">What are you good at?</p><p class="a">Shipping frontends with the product thinking around them. My stack is React, Next.js, Supabase, Tailwind, and REST APIs - but I also handle video production and visual design, which turn out to matter more than I expected when building things people actually use.</p></div>
+          <div><p class="q">What went wrong recently?</p><p class="a">Built the full UI and data logic for LeetCode Analytics, then found LeetCode's API has paid limits. Now feasibility gets checked before the build starts. And at Noesis the connection dropped right before submission with the demo broken. We split roles, debugged in parallel and presented calm. We won.</p></div>
+          <div><p class="q">What are you learning?</p><p class="a">Deepening my backend skills across Node.js and Express, exploring machine learning with Python, and solving data structures and algorithms problems in Java as part of my daily practice.</p></div>
+          <div><p class="q">Standing?</p><p class="a">9.45 CGPA, ranked 7th in semester one. Previously at Ramjas School, New Delhi (Class XII, 2025). Completed Forage virtual experience programmes with Goldman Sachs and Deloitte, and participated in Scaler's Young Innovator Challenge 4.0.</p></div>
+          <div><p class="q">Who do you mentor?</p><p class="a">Through Campus Connect, I've completed 8+ paid one-to-one mentorship sessions and guided 38+ students through their college application and decision-making process.</p></div>
+          <div><p class="q">What next?</p><p class="a">Looking for an internship in frontend engineering, product, or AI - with a team that ships real products. I reply within a day.</p></div>
+        </div>
       </div>
 
 
@@ -474,6 +494,10 @@
             <span class="pm-now"><i>So now</i>split roles instantly, debug in parallel, present calm. We won. Division of work beats heroics.</span>
           </div>
         </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 56px;" data-reveal>
+        <a class="btn btn-paper" href="about.html">Read the full story &rarr;</a>
       </div>
 
       <div class="quotes">
@@ -609,8 +633,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="js/cursor.js?v=19"></script>
-  <script src="js/app.js?v=19"></script>
+  <script src="js/cursor.js?v=36"></script>
+  <script src="js/app.js?v=36"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -635,6 +659,7 @@
     }
   });
 </script>
+  <script src="js/theme.js?v=36"></script>
 </body>
 
 </html>

@@ -1,33 +1,95 @@
-/* Cursor: one solid disc that sits on the pointer and grows over anything you can click. Pointer devices only; shared by every page. */
+/* Cursor: Custom pointer with click burst effect */
 (() => {
-  const cur = document.getElementById("cur");
-  if (!cur || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-  const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.documentElement.classList.add("has-cur");
-  let mx = -100, my = -100, x = -100, y = -100, raf = 0;
-  const loop = () => {
-    const k = RM ? 1 : 0.42;
-    x += (mx - x) * k; y += (my - y) * k;
-    cur.style.translate = `${x}px ${y}px`;
-    raf = Math.abs(mx - x) + Math.abs(my - y) > 0.05 ? requestAnimationFrame(loop) : 0;
-  };
-  const kind = (t) => {
-    if (!t || !t.closest) return "";
-    if (t.closest("input, textarea, [contenteditable]")) return "is-text";
-    if (t.closest(".prow")) return "is-row";
-    if (t.closest("a, button, summary, label, .fchip")) return "is-link";
-    return "";
-  };
-  window.addEventListener("mousemove", (e) => {
-    mx = e.clientX; my = e.clientY;
-    if (x < -50) { x = mx; y = my; }
-    cur.classList.remove("is-out");
-    const k = kind(e.target);
-    ["is-link", "is-row", "is-text"].forEach((c) => cur.classList.toggle(c, c === k));
-    if (!raf) raf = requestAnimationFrame(loop);
-  }, { passive: true });
-  document.addEventListener("mouseleave", () => cur.classList.add("is-out"));
-  document.addEventListener("mouseenter", () => cur.classList.remove("is-out"));
-  window.addEventListener("mousedown", () => cur.classList.add("is-down"));
-  window.addEventListener("mouseup", () => cur.classList.remove("is-down"));
+  // Add custom cursor CSS
+  const style = document.createElement('style');
+  const b64 = "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNMCAwIEwwIDIyIEw3IDE2IEwxNyAxNiBaIiBmaWxsPSIjMGMwYzBjIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==";
+  style.innerHTML = `
+    html, body {
+      cursor: url("data:image/svg+xml;base64,${b64}") 0 0, auto !important;
+    }
+    a, button, input, textarea, summary, label, .fchip, .prow, [role="button"], .pal-row, .res-head {
+      cursor: url("data:image/svg+xml;base64,${b64}") 0 0, pointer !important;
+    }
+    .click-burst {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      width: 0;
+      height: 0;
+    }
+    .click-burst-line {
+      position: absolute;
+      width: 2.5px;
+      height: 10px;
+      border-radius: 2px;
+      transform-origin: 50% 15px;
+      opacity: 0;
+      animation: click-burst-anim 0.35s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    }
+    @keyframes click-burst-anim {
+      0% {
+        transform: rotate(var(--rot)) translateY(-8px);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(var(--rot)) translateY(-24px);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Helper to detect if background is dark
+  function isDarkBackground(x, y) {
+    let el = document.elementFromPoint(x, y);
+    while (el && el !== document.body && el !== document.documentElement) {
+      const style = window.getComputedStyle(el);
+      const bg = style.backgroundColor;
+      if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+        const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (match) {
+          const r = parseInt(match[1], 10);
+          const g = parseInt(match[2], 10);
+          const b = parseInt(match[3], 10);
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+          return brightness < 128;
+        }
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  // Add click event listener for the burst
+  window.addEventListener('mousedown', (e) => {
+    // Left clicks only
+    if (e.button !== 0) return;
+
+    const burst = document.createElement('div');
+    burst.className = 'click-burst';
+    
+    // Position burst exactly at the cursor tip
+    burst.style.left = e.clientX + 'px';
+    burst.style.top = e.clientY + 'px';
+
+    const isDark = isDarkBackground(e.clientX, e.clientY);
+    const lineColor = isDark ? '#ffffff' : '#0c0c0c';
+
+    // Lines radiating upwards and leftwards (-90 to 0 degrees)
+    const angles = [-90, -67.5, -45, -22.5, 0];
+    
+    angles.forEach(angle => {
+      const line = document.createElement('div');
+      line.className = 'click-burst-line';
+      line.style.setProperty('--rot', angle + 'deg');
+      line.style.backgroundColor = lineColor;
+      burst.appendChild(line);
+    });
+
+    document.body.appendChild(burst);
+
+    setTimeout(() => {
+      burst.remove();
+    }, 400);
+  });
 })();

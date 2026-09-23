@@ -94,3 +94,10 @@ main { padding-top: 22px; }
   .ticker { border-radius: 12px; }
   main { padding-top: 14px; }
 }
+
+
+@media (max-width: 640px) {
+  /* Mobile overrides for prow padding and layout to stop overflow */
+  .prow { padding: 16px; gap: 16px; }
+  .prow:hover, .prow.is-focus { padding-left: 16px; }
+}

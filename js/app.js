@@ -299,6 +299,24 @@ function initMotion() {
     gsap.from(sec, { "--wipe": 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: sec, start: "top 80%", once: true }, onStart: () => sec.classList.add("is-wiping"), onComplete: () => sec.classList.remove("is-wiping") });
   });
 
+  /* QA: pin the section and scroll its internal content down using page scroll */
+  const qa = document.querySelector(".qa");
+  const qaInner = document.querySelector(".qa-inner");
+  if (qa && qaInner && typeof ScrollTrigger !== "undefined") {
+    gsap.to(qaInner, {
+      y: () => -(qaInner.scrollHeight - qa.clientHeight),
+      ease: "none",
+      scrollTrigger: {
+        trigger: qa,
+        start: "top 18%", // Pin when the QA box is just below the About header
+        end: () => "+=" + (qaInner.scrollHeight - qa.clientHeight),
+        pin: true,
+        scrub: true,
+        invalidateOnRefresh: true
+      }
+    });
+  }
+
   /* postmortems: strike through the old behaviour, then "So now" arrives */
   document.querySelectorAll("[data-pm]").forEach((row) => {
     ScrollTrigger.create({ trigger: row, start: "top 78%", once: true, onEnter: () => row.classList.add("is-on") });
@@ -368,10 +386,12 @@ function initMotion() {
   /* nav scrollspy */
   document.querySelectorAll(".nav-links a").forEach((a) => {
     const sel = a.getAttribute("href");
-    if (!sel || sel === "#") return;
-    const sec = document.querySelector(sel);
-    if (!sec) return;
-    ScrollTrigger.create({ trigger: sec, start: "top 45%", end: "bottom 45%", onToggle: (self) => a.classList.toggle("on", self.isActive) });
+    if (!sel || !sel.startsWith("#")) return;
+    try {
+      const sec = document.querySelector(sel);
+      if (!sec) return;
+      ScrollTrigger.create({ trigger: sec, start: "top 45%", end: "bottom 45%", onToggle: (self) => a.classList.toggle("on", self.isActive) });
+    } catch (e) {}
   });
 }
 

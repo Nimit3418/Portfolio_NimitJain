@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    let _theme = localStorage.getItem("theme");
+    if (!_theme) { _theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
+    document.documentElement.setAttribute("data-theme", _theme);
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Nimit Jain · grid</title>
+  <meta name="description" content="Nimit Jain. Student, developer, co-founder of CampusCritique and creator in Pune. CS (AI) at Vedam School of Technology.">
+  <meta name="theme-color" content="#f4f3ef">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css?v=36">
+  <link rel="stylesheet" href="css/grid.css?v=36">
+</head>
+<body>
+
+  <a class="skip" href="index.html#work">Skip to work</a>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <a class="nav-brand" href="#top">Nimit Jain</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work<kbd>1</kbd></a>
+      <a href="index.html#creator">Creator<kbd>2</kbd></a>
+      <a href="about.html">About<kbd>3</kbd></a>
+      <a href="index.html#contact">Contact<kbd>4</kbd></a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+    <button class="nav-ask" id="ask-open-nav" type="button" data-magnet aria-haspopup="dialog" aria-controls="palette">Ask me anything<kbd>/</kbd></button>
+    <i class="nav-progress" id="nav-progress" aria-hidden="true"></i>
+  </header>
+
+  <!-- ================= MOB NAV ================= -->
+  <nav class="mob-nav" aria-label="Mobile">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#creator">Creator</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+
+  <main id="top">
+
+    <section class="sec am-hero">
+      <div class="am-hero-wrap" data-reveal>
+        <h1 class="am-hero-title">
+          "I didn't start coding to win hackathons. I started because I had questions nobody would answer."
+        </h1>
+        <p class="am-hero-p">
+          I arrived at Vedam School of Technology from Delhi looking for answers about college life, tech stacks, and what actually mattered. When I couldn't find them, I started a YouTube channel to document my search. That channel became a community of 38+ students-and it taught me my first real lesson in building.
+        </p>
+      </div>
+    </section>
+
+    <section class="sec sec-wipe sec-ink am-shift">
+      <div class="am-shift-grid">
+        <div data-reveal>
+          <h2 class="am-shift-title">The Creator</h2>
+          <p class="am-shift-p">
+            Video production, visual design, and scripting aren't distractions from engineering; they are the foundation of product thinking. Building an audience taught me that the best code in the world doesn't matter if you can't communicate its value.
+          </p>
+          <p class="am-shift-p">
+            Reaching the right people is just as critical as shipping the right feature. That realization shifted how I approach every project.
+          </p>
+        </div>
+        <div data-reveal>
+          <h2 class="am-shift-title">The Engineer</h2>
+          <p class="am-shift-p">
+            Answering questions was a start, but building systems was the answer. I moved from content creation to full-stack engineering, co-founding CampusCritique to solve the very problems I was talking about.
+          </p>
+          <p class="am-shift-p">
+            My stack evolved aggressively: React, Next.js, and Supabase for the frontend, Node.js and Express for the backend, and Python for machine learning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec am-phil">
+      <div class="am-phil-wrap">
+        
+        <div class="am-phil-item left" data-reveal>
+          <h3 class="am-phil-title">Research is part of the build, not a warm-up.</h3>
+          <p class="am-phil-p">
+            I once built the entire UI and data logic for a LeetCode Analytics platform, only to discover at the very end that LeetCode's API had paid limits. The work was wasted. Since then, feasibility and limits are validated before a single line of production code is written.
+          </p>
+        </div>
+
+        <div class="am-phil-item right" data-reveal>
+          <h3 class="am-phil-title">Division of work beats heroics.</h3>
+          <p class="am-phil-p">
+            At the Noesis hackathon, the problem statement changed mid-event, and our connectivity dropped right before submission. The demo broke. Instead of panicking, we instantly split roles, debugged in parallel, and presented calmly. We won first place.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="sec am-foot">
+      <div class="am-foot-grid">
+        
+        <div data-reveal>
+          <h4 class="am-foot-title">The Current Focus</h4>
+          <ul class="am-foot-p">
+            <li>Deepening backend architecture (Node.js/Express)</li>
+            <li>Exploring Machine Learning with Python</li>
+            <li>Daily DSA practice in Java</li>
+            <li>Maintaining a 9.45 CGPA (Rank 7)</li>
+          </ul>
+        </div>
+
+        <div data-reveal>
+          <h4 class="am-foot-title">What's Next?</h4>
+          <p class="am-foot-p" style="margin-bottom: 24px;">
+            I'm actively looking for an internship in frontend engineering, product, or AI with a team that ships real products. I reply within a day.
+          </p>
+          <a href="mailto:jainnimit34b@gmail.com" class="btn btn-ink" style="display: inline-block;">Get in touch</a>
+        </div>
+
+        <div data-reveal>
+          <h4 class="am-foot-title">Elsewhere</h4>
+          <ul class="am-foot-p">
+            <li><a href="https://github.com/Nimit3418" target="_blank" class="uline" style="color: var(--ink);">GitHub</a></li>
+            <li><a href="https://www.youtube.com/@NimitJain18" target="_blank" class="uline" style="color: var(--ink);">YouTube</a></li>
+            <li><a href="https://www.linkedin.com/in/nimitjain18" target="_blank" class="uline" style="color: var(--ink);">LinkedIn</a></li>
+            <li><a href="https://leetcode.com/u/Nimit_Jain07/" target="_blank" class="uline" style="color: var(--ink);">LeetCode</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+<!-- ================= ASK · RAG CHAT ================= -->
+
+  <!-- ================= ASK · command palette + RAG (press / or Cmd K) ================= -->
+  <div class="pal-wrap" id="palette" role="dialog" aria-modal="true" aria-label="Ask about Nimit, or jump anywhere on the site" hidden>
+    <div class="pal">
+      <form class="pal-form" id="pal-form">
+        <i class="live" aria-hidden="true"></i>
+        <input type="text" id="pal-input" maxlength="300" placeholder="Ask about Nimit, or type a command" autocomplete="off" spellcheck="false" aria-label="Ask a question or search commands" aria-controls="pal-list" aria-autocomplete="list">
+        <kbd class="pal-esc" aria-hidden="true">esc</kbd>
+      </form>
+      <div class="pal-body">
+        <div class="pal-list" id="pal-list" role="listbox">
+          <div class="pal-group" data-group="ask" hidden><div class="pal-h">Ask</div>
+            <button type="button" class="pal-row" role="option" data-act="ask"><span class="pal-t"><b>Ask:</b> <span data-ask-echo></span></span><kbd>&#8629;</kbd></button>
+          </div>
+          <div class="pal-group" data-group="nav"><div class="pal-h">Navigate</div>
+            <button type="button" class="pal-row" role="option" data-act="go" data-to="#work" data-keys="work projects case studies">Work<kbd>1</kbd></button>
+            <button type="button" class="pal-row" role="option" data-act="go" data-to="#creator" data-keys="creator youtube channel video">Creator<kbd>2</kbd></button>
+            <button type="button" class="pal-row" role="option" data-act="go" data-to="#about" data-keys="about interview results postmortem">About<kbd>3</kbd></button>
+            <button type="button" class="pal-row" role="option" data-act="go" data-to="#contact" data-keys="contact email form hire">Contact<kbd>4</kbd></button>
+            <button type="button" class="pal-row" role="option" data-act="go" data-to="#changelog" data-keys="changelog timeline history">Changelog<kbd></kbd></button>
+          </div>
+          <div class="pal-group" data-group="projects"><div class="pal-h">Projects</div>
+            <a class="pal-row" role="option" href="work/campuscritique.html" data-keys="campuscritique college product nextjs supabase">CampusCritique<span class="pal-hint">1,100+ visitors</span><kbd>&#8629;</kbd></a>
+            <a class="pal-row" role="option" href="work/oilspill.html" data-keys="oil spill detection sih hackathon sar ais python">Oil Spill Detection<span class="pal-hint">1st, SIH internal</span><kbd>&#8629;</kbd></a>
+            <a class="pal-row" role="option" href="work/askmynotes.html" data-keys="askmynotes notes tutor rag noesis hackathon">AskMyNotes AI<span class="pal-hint">1st, Noesis</span><kbd>&#8629;</kbd></a>
+            <a class="pal-row" role="option" href="work/kisanmind.html" data-keys="kisanmind farmers agents langgraph hackwarts hindi marathi">KisanMind<span class="pal-hint">Top 2, HackWarts</span><kbd>&#8629;</kbd></a>
+            <a class="pal-row" role="option" href="work/zorvyn.html" data-keys="zorvyn finance dashboard react solo">Zorvyn<span class="pal-hint">solo build</span><kbd>&#8629;</kbd></a>
+          </div>
+          <div class="pal-group" data-group="general"><div class="pal-h">General</div>
+            <button type="button" class="pal-row" role="option" data-act="copy" data-copy="jainnimit34b@gmail.com" data-keys="copy email address mail">Copy email address<kbd>c</kbd></button>
+            <a class="pal-row" role="option" href="https://github.com/Nimit3418" rel="noopener" data-keys="github code repositories">Open GitHub<kbd>g</kbd></a>
+            <a class="pal-row" role="option" href="https://www.youtube.com/@NimitJain18" rel="noopener" data-keys="youtube channel videos">Open YouTube<kbd>y</kbd></a>
+            <a class="pal-row" role="option" href="https://www.linkedin.com/in/nimitjain18" rel="noopener" data-keys="linkedin profile">Open LinkedIn<kbd>l</kbd></a>
+            <button type="button" class="pal-row" role="option" data-act="keys" data-keys="keyboard shortcuts map help">Keyboard shortcuts<kbd>?</kbd></button>
+          </div>
+          <div class="pal-group" data-group="starters"><div class="pal-h">Try asking</div>
+            <button type="button" class="pal-row" role="option" data-act="ask-text" data-keys="what is campuscritique">What is CampusCritique?<kbd>&#8629;</kbd></button>
+            <button type="button" class="pal-row" role="option" data-act="ask-text" data-keys="hackathons placed">Which hackathons has he placed in?<kbd>&#8629;</kbd></button>
+            <button type="button" class="pal-row" role="option" data-act="ask-text" data-keys="open internships available hire">Is he open to internships?<kbd>&#8629;</kbd></button>
+          </div>
+          <p class="pal-empty" id="pal-empty" hidden>No command matches. Press Enter to ask it.</p>
+        </div>
+        <div class="pal-log" id="td-log" aria-live="polite" hidden></div>
+      </div>
+      <div class="pal-foot"><span><kbd>&#8593;</kbd><kbd>&#8595;</kbd> move</span><span><kbd>&#8629;</kbd> select or ask</span><span>Answers come only from this site, with sources</span></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/cursor.js?v=36"></script>
+  <script src="js/app.js?v=36"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('viewMoreBtn');
+    const container = document.getElementById('hiddenProjects');
+    if(btn && container) {
+      btn.addEventListener('click', () => {
+        container.style.display = 'block';
+        btn.parentElement.style.display = 'none';
+        
+        // Re-trigger scroll animations if needed for the revealed elements
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        container.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+      });
+    }
+  });
+</script>
+  <script src="js/theme.js?v=36"></script>
+</body>
+
+</html>
