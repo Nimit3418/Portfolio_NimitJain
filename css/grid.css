@@ -12,7 +12,7 @@
 }
 
 body {
-  background-color: #efeee9;
+  background-color: var(--page-bg, #efeee9);
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
@@ -21,7 +21,7 @@ body {
 }
 
 /* nav: a floating bar on the grid */
-.nav { top: 12px; margin: 12px auto 0; max-width: 1240px; height: 58px; padding: 0 10px 0 22px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(247, 246, 242, 0.9); overflow: hidden; }
+.nav { top: 12px; margin: 12px auto 0; max-width: 1240px; height: 58px; padding: 0 10px 0 22px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--nav-bg, rgba(247, 246, 242, 0.9)); overflow: hidden; }
 .nav-progress { left: 22px; right: 22px; width: auto; bottom: 0; }
 
 main { padding-top: 22px; }
@@ -49,8 +49,8 @@ main { padding-top: 22px; }
 /* work rows as cards inside the sheet */
 .filters { margin-bottom: 18px; }
 .plist { border-top: none; display: grid; gap: 12px; }
-.prow { border: 1px solid var(--line); border-radius: 10px; padding: 24px 22px; background: rgba(255, 255, 255, 0.45); transition: border-color 0.25s, background 0.25s, padding-left 0.35s var(--ease); }
-.prow:hover, .prow.is-focus { border-color: var(--ink); background: #fff; padding-left: 30px; }
+.prow { border: 1px solid var(--line); border-radius: 10px; padding: 24px 22px; background: var(--prow-bg, rgba(255, 255, 255, 0.45)); transition: border-color 0.25s, background 0.25s, padding-left 0.35s var(--ease); }
+.prow:hover, .prow.is-focus { border-color: var(--ink); background: var(--prow-hover, #fff); padding-left: 30px; }
 .more { margin-top: 24px; }
 
 /* changelog: same sticky numeral, on the sheet */
@@ -59,14 +59,14 @@ main { padding-top: 22px; }
 
 /* about: interview, results, postmortems as two cards */
 .qa, .award-list { border-top: none; }
-.qa > div, .award-list li { border-bottom: 1px solid var(--line); }
+.qa-inner > div, .award-list li { border-bottom: 1px solid var(--line); }
 .pm { border-top: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .pm-row { display: block; border: 1px solid var(--line-strong); border-radius: 10px; padding: 22px 24px 24px; }
 .pm-row > span { display: block; }
 .pm-k { margin-bottom: 12px; }
 .pm-was { margin-bottom: 14px; }
 .quotes { border-top: none; padding-top: 0; }
-.pq { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; background: rgba(255, 255, 255, 0.45); }
+.pq { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; background: var(--prow-bg, rgba(255, 255, 255, 0.45)); }
 
 /* contact: dark sheet, link cards */
 .contact-links { gap: 12px; border-top: none; margin-top: 16px; }
