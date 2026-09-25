@@ -98,6 +98,15 @@ main { padding-top: 22px; }
 
 @media (max-width: 640px) {
   /* Mobile overrides for prow padding and layout to stop overflow */
-  .prow { padding: 16px; gap: 16px; }
-  .prow:hover, .prow.is-focus { padding-left: 16px; }
+  .prow { padding: 14px; gap: 10px; }
+  .prow-main { gap: 8px; }
+  .prow:hover, .prow.is-focus { padding-left: 14px; }
+  .prow-t { font-size: 1.15rem; }
+  .prow-s { font-size: 0.82rem; max-width: 100%; }
+  .prow-meta { margin-top: 6px; gap: 8px; }
+  .prow-tags li { font-size: 10px; padding: 2px 6px; }
+  .prow-cta { gap: 12px; margin-top: 6px; font-size: 12.5px; }
+  .prow-v { font-size: 1.2rem; }
+  .prow-c { font-size: 11px; }
+  .prow-period { font-size: 12px; }
 }

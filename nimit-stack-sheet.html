@@ -1,0 +1,323 @@
+<title>Nimit's Stack Sheet</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --paper: #f2f1ec; --sheet: #fbfaf7; --ink: #121210; --muted: #5b5a54; --faint: #8b8a82;
+  --line: #ddd9d0; --line-2: #c7c3b8; --chip: #eeece4; --chip-line: #d7d3c8;
+  --gold: #8f6f22; --gold-soft: rgba(201, 169, 97, 0.22); --shadow: rgba(18, 18, 16, 0.05);
+  --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121211; --sheet: #1a1a18; --ink: #edece5; --muted: #a4a39a; --faint: #7f7e76;
+    --line: #2a2a26; --line-2: #3b3b34; --chip: #232320; --chip-line: #35352e;
+    --gold: #c9a961; --gold-soft: rgba(201, 169, 97, 0.18); --shadow: rgba(0, 0, 0, 0.3);
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121211; --sheet: #1a1a18; --ink: #edece5; --muted: #a4a39a; --faint: #7f7e76;
+  --line: #2a2a26; --line-2: #3b3b34; --chip: #232320; --chip-line: #35352e;
+  --gold: #c9a961; --gold-soft: rgba(201, 169, 97, 0.18); --shadow: rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; padding-inline: 20px; padding-block: 0; }
+.wrap { max-width: 960px; margin: 0 auto; padding-block: 56px 72px; }
+h1, h2, h3 { margin: 0; letter-spacing: -0.03em; line-height: 1.05; text-wrap: balance; }
+h1 { font-size: clamp(2.1rem, 5.5vw, 3.2rem); font-weight: 700; letter-spacing: -0.045em; }
+p { margin: 0; }
+a { color: inherit; }
+.mono { font-family: var(--mono); font-size: 0.86em; }
+
+.head { border-bottom: 1.5px solid var(--ink); padding-bottom: 26px; }
+.eyebrow { font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.lede { color: var(--muted); font-size: 1.06rem; max-width: 62ch; margin-top: 14px; }
+.counts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.count { background: var(--sheet); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 13.5px; color: var(--muted); }
+.count b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 30px; padding: 12px 0; background: var(--paper); border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--muted); }
+.bar b { color: var(--ink); font-weight: 600; }
+.bar button { font: inherit; font-size: 13px; color: var(--ink); background: none; border: 1px solid var(--line-2); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.bar button:hover { border-color: var(--ink); }
+.bar [hidden] { display: none !important; }
+
+h2 { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; margin-top: 52px; padding-bottom: 10px; border-bottom: 1px solid var(--line-2); }
+h2 span { color: var(--faint); font-weight: 400; }
+
+.proj { padding: 30px 0; border-bottom: 1px solid var(--line); }
+.proj-h h3 { font-size: 1.55rem; font-weight: 700; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.proj-sm .proj-h h3 { font-size: 1.2rem; }
+.mark { font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted); }
+.mark-win { border-color: var(--gold); color: var(--gold); }
+.mark-live { border-color: var(--ink); color: var(--ink); }
+.role { color: var(--muted); font-size: 0.97rem; margin-top: 8px; max-width: 70ch; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; }
+.links a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
+.links a:hover { color: var(--ink); border-color: var(--ink); }
+
+.layers { display: grid; gap: 10px; margin-top: 20px; }
+.layer { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 8px 18px; align-items: start; }
+.layer-l { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--faint); padding-top: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--mono); font-size: 12.5px; font-weight: 400; color: var(--ink); background: var(--chip); border: 1px solid var(--chip-line); border-radius: 5px; padding: 4px 9px; cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s; }
+.chip:hover { border-color: var(--ink); }
+.chip.is-on { background: var(--gold-soft); border-color: var(--gold); color: var(--ink); font-weight: 500; }
+body.filtering .chip:not(.is-on) { opacity: 0.32; }
+body.filtering .proj.is-dim, body.filtering .u-table tr.is-dim { opacity: 0.32; }
+.src { font-size: 12.5px; color: var(--faint); margin-top: 16px; }
+
+.u-wrap { overflow-x: auto; margin-top: 18px; }
+.u-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.u-table th, .u-table td { text-align: left; vertical-align: top; padding: 14px 18px 14px 0; border-bottom: 1px solid var(--line); }
+.u-table thead th { font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); font-weight: 600; border-bottom: 1px solid var(--line-2); padding-top: 0; }
+.u-table tbody th { font-weight: 600; min-width: 190px; }
+.u-table tbody th .mono { display: block; font-weight: 400; margin-top: 4px; }
+.u-table tbody th a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+.u-table tbody th a:hover { color: var(--ink); }
+.why { color: var(--muted); min-width: 200px; }
+
+.index { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px; }
+.index .chip { display: inline-flex; align-items: baseline; gap: 7px; }
+.index .n { font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; }
+.index .chip.is-on .n { color: var(--gold); }
+
+.foot { margin-top: 56px; padding-top: 22px; border-top: 1.5px solid var(--ink); font-size: 13px; color: var(--faint); display: grid; gap: 6px; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (max-width: 620px) {
+  .wrap { padding-block: 36px 56px; }
+  .layer { grid-template-columns: 1fr; gap: 4px; }
+  .layer-l { padding-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <p class="eyebrow">Stack sheet, 22 September 2026</p>
+    <h1>Everything Nimit has built, and what it is built with</h1>
+    <p class="lede">Nine shipped projects, plus four repositories that are not on the site yet. Every line below was read from the repository's own manifests (<span class="mono">package.json</span>, <span class="mono">requirements.txt</span>) or from the live build, not from memory. Click any technology to see everywhere it appears.</p>
+    <div class="counts">
+      <span class="count"><b>9</b> shipped projects</span>
+      <span class="count"><b>96</b> distinct technologies</span>
+      <span class="count"><b>3</b> hackathon results</span>
+      <span class="count"><b>4</b> unlisted repositories</span>
+    </div>
+  </header>
+
+  <div class="bar" id="bar">
+    <span id="bar-idle">Tip: click a technology chip to trace it across every project.</span>
+    <span id="bar-live" hidden>Showing <b id="bar-tech"></b> &middot; appears in <b id="bar-count"></b></span>
+    <button type="button" id="bar-clear" hidden>Clear</button>
+  </div>
+
+  <h2>Case studies <span>&middot; the five on his site</span></h2>
+      <article class="proj">
+        <header class="proj-h">
+          <h3>CampusCritique<span class="mark mark-live">live</span></h3>
+          <p class="role">Co-founder. Frontend, authentication, review workflow, and the Connect booking flow.</p>
+          <p class="links"><a href="https://campuscritique.in" rel="noopener"><span class="mono">campuscritique.in</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="typescript">TypeScript</button><button type="button" class="chip" data-tech="node-js">Node.js</button></div></div>
+          <div class="layer"><span class="layer-l">Framework and UI</span><div class="chips"><button type="button" class="chip" data-tech="next-js-16">Next.js 16</button><button type="button" class="chip" data-tech="react-19">React 19</button><button type="button" class="chip" data-tech="tailwind-css">Tailwind CSS</button></div></div>
+          <div class="layer"><span class="layer-l">Data and auth</span><div class="chips"><button type="button" class="chip" data-tech="supabase">Supabase</button><button type="button" class="chip" data-tech="postgresql">PostgreSQL</button><button type="button" class="chip" data-tech="row-level-security">Row-Level Security</button><button type="button" class="chip" data-tech="supabase-auth">Supabase Auth</button></div></div>
+          <div class="layer"><span class="layer-l">Services</span><div class="chips"><button type="button" class="chip" data-tech="cashfree">Cashfree</button><button type="button" class="chip" data-tech="qstash">QStash</button><button type="button" class="chip" data-tech="resend">Resend</button><button type="button" class="chip" data-tech="firebase-cloud-messaging">Firebase Cloud Messaging</button><button type="button" class="chip" data-tech="notify-java-spring-boot">Notify (Java, Spring Boot)</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="vercel">Vercel</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">private repo; stack confirmed from the live build and the Notify integration</span></p>
+      </article>
+      <article class="proj">
+        <header class="proj-h">
+          <h3>Oil Spill Detection<span class="mark mark-win">1st, SIH internal round</span></h3>
+          <p class="role">AIS track reconstruction and vessel attribution: the candidate ranking in the console is his module.</p>
+          <p class="links"><a href="https://github.com/TrueMan08/Team_AlgoRise_OilSpill_detection" rel="noopener"><span class="mono">TrueMan08/Team_AlgoRise_OilSpill_detection</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="python-3">Python 3</button><button type="button" class="chip" data-tech="javascript">JavaScript</button><button type="button" class="chip" data-tech="shell">Shell</button></div></div>
+          <div class="layer"><span class="layer-l">Framework and UI</span><div class="chips"><button type="button" class="chip" data-tech="react">React</button><button type="button" class="chip" data-tech="vite">Vite</button><button type="button" class="chip" data-tech="leaflet">Leaflet</button><button type="button" class="chip" data-tech="react-leaflet">react-leaflet</button><button type="button" class="chip" data-tech="deck-gl">deck.gl</button><button type="button" class="chip" data-tech="deck-gl-layers">@deck.gl/layers</button><button type="button" class="chip" data-tech="lucide-react">lucide-react</button><button type="button" class="chip" data-tech="axios">axios</button></div></div>
+          <div class="layer"><span class="layer-l">Backend</span><div class="chips"><button type="button" class="chip" data-tech="fastapi">FastAPI</button><button type="button" class="chip" data-tech="uvicorn">Uvicorn</button><button type="button" class="chip" data-tech="pydantic-v2">Pydantic v2</button><button type="button" class="chip" data-tech="pydantic-settings">pydantic-settings</button><button type="button" class="chip" data-tech="python-multipart">python-multipart</button><button type="button" class="chip" data-tech="httpx">httpx</button><button type="button" class="chip" data-tech="pytest">pytest</button></div></div>
+          <div class="layer"><span class="layer-l">Science and geo</span><div class="chips"><button type="button" class="chip" data-tech="opendrift">OpenDrift</button><button type="button" class="chip" data-tech="xarray">xarray</button><button type="button" class="chip" data-tech="scipy">SciPy</button><button type="button" class="chip" data-tech="numpy">NumPy</button><button type="button" class="chip" data-tech="shapely">Shapely</button><button type="button" class="chip" data-tech="pyproj">pyproj</button><button type="button" class="chip" data-tech="rasterio">rasterio</button><button type="button" class="chip" data-tech="matplotlib">Matplotlib</button></div></div>
+          <div class="layer"><span class="layer-l">AI and ML</span><div class="chips"><button type="button" class="chip" data-tech="pytorch">PyTorch</button><button type="button" class="chip" data-tech="opencv">OpenCV</button></div></div>
+          <div class="layer"><span class="layer-l">Data</span><div class="chips"><button type="button" class="chip" data-tech="ais-position-reports">AIS position reports</button><button type="button" class="chip" data-tech="sentinel-1-sar-rasters">Sentinel-1 SAR rasters</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="docker">Docker</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">frontend/package.json, backend/requirements.txt, ML-service/service/requirements.txt</span></p>
+      </article>
+      <article class="proj">
+        <header class="proj-h">
+          <h3>AskMyNotes AI<span class="mark mark-win">1st, Noesis</span></h3>
+          <p class="role">Authentication end to end and the user-facing frontend, built in eight hours.</p>
+          <p class="links"><a href="https://askmynotes-algorise.vercel.app/" rel="noopener"><span class="mono">askmynotes-algorise.vercel.app</span></a> <a href="https://github.com/VKS0104/AskMyNotes-AlgoRise" rel="noopener"><span class="mono">VKS0104/AskMyNotes-AlgoRise</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="javascript">JavaScript</button></div></div>
+          <div class="layer"><span class="layer-l">Framework and UI</span><div class="chips"><button type="button" class="chip" data-tech="next-js">Next.js</button><button type="button" class="chip" data-tech="react">React</button></div></div>
+          <div class="layer"><span class="layer-l">Data and auth</span><div class="chips"><button type="button" class="chip" data-tech="supabase">Supabase</button><button type="button" class="chip" data-tech="supabase-ssr">@supabase/ssr</button><button type="button" class="chip" data-tech="chromadb">ChromaDB</button></div></div>
+          <div class="layer"><span class="layer-l">AI and ML</span><div class="chips"><button type="button" class="chip" data-tech="langchain">LangChain</button><button type="button" class="chip" data-tech="langchain-core">@langchain/core</button><button type="button" class="chip" data-tech="langchain-community">@langchain/community</button><button type="button" class="chip" data-tech="langchain-textsplitters">@langchain/textsplitters</button><button type="button" class="chip" data-tech="langchain-google-genai">@langchain/google-genai</button><button type="button" class="chip" data-tech="gemini-2-0-flash">Gemini 2.0 Flash</button></div></div>
+          <div class="layer"><span class="layer-l">Services</span><div class="chips"><button type="button" class="chip" data-tech="pdf-parse">pdf-parse</button><button type="button" class="chip" data-tech="vercel-analytics">Vercel Analytics</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="vercel">Vercel</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">package.json</span></p>
+      </article>
+      <article class="proj">
+        <header class="proj-h">
+          <h3>KisanMind<span class="mark mark-win">Top 2, HackWarts</span></h3>
+          <p class="role">The Next.js frontend, and the wiring that streams four LangGraph agents into the UI.</p>
+          <p class="links"><a href="https://altahackathon.vercel.app/" rel="noopener"><span class="mono">altahackathon.vercel.app</span></a> <a href="https://github.com/Satyam087/AltaHack" rel="noopener"><span class="mono">Satyam087/AltaHack</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="typescript">TypeScript</button><button type="button" class="chip" data-tech="python">Python</button><button type="button" class="chip" data-tech="node-js">Node.js</button></div></div>
+          <div class="layer"><span class="layer-l">Framework and UI</span><div class="chips"><button type="button" class="chip" data-tech="next-js-15">Next.js 15</button><button type="button" class="chip" data-tech="react">React</button><button type="button" class="chip" data-tech="shadcn-ui">shadcn/ui</button><button type="button" class="chip" data-tech="base-ui-react">@base-ui/react</button><button type="button" class="chip" data-tech="tailwind-css">Tailwind CSS</button><button type="button" class="chip" data-tech="framer-motion">Framer Motion</button><button type="button" class="chip" data-tech="recharts">Recharts</button><button type="button" class="chip" data-tech="zustand">Zustand</button><button type="button" class="chip" data-tech="lucide-react">lucide-react</button><button type="button" class="chip" data-tech="class-variance-authority">class-variance-authority</button><button type="button" class="chip" data-tech="clsx">clsx</button><button type="button" class="chip" data-tech="tailwind-merge">tailwind-merge</button></div></div>
+          <div class="layer"><span class="layer-l">Backend</span><div class="chips"><button type="button" class="chip" data-tech="express">Express</button><button type="button" class="chip" data-tech="mongoose">Mongoose</button><button type="button" class="chip" data-tech="jwt">JWT</button><button type="button" class="chip" data-tech="bcryptjs">bcryptjs</button><button type="button" class="chip" data-tech="helmet">helmet</button><button type="button" class="chip" data-tech="cors">cors</button><button type="button" class="chip" data-tech="cookie-parser">cookie-parser</button><button type="button" class="chip" data-tech="morgan">morgan</button></div></div>
+          <div class="layer"><span class="layer-l">Data and auth</span><div class="chips"><button type="button" class="chip" data-tech="mongodb">MongoDB</button></div></div>
+          <div class="layer"><span class="layer-l">AI and ML</span><div class="chips"><button type="button" class="chip" data-tech="fastapi">FastAPI</button><button type="button" class="chip" data-tech="langgraph">LangGraph</button><button type="button" class="chip" data-tech="langchain">LangChain</button><button type="button" class="chip" data-tech="langchain-google-genai">langchain-google-genai</button><button type="button" class="chip" data-tech="langchain-groq">langchain-groq</button><button type="button" class="chip" data-tech="langchain-openai">langchain-openai</button><button type="button" class="chip" data-tech="gemini-2-0-flash">Gemini 2.0 Flash</button><button type="button" class="chip" data-tech="groq-whisper">Groq Whisper</button><button type="button" class="chip" data-tech="sarvam-ai">Sarvam AI</button><button type="button" class="chip" data-tech="langdetect">langdetect</button></div></div>
+          <div class="layer"><span class="layer-l">Services</span><div class="chips"><button type="button" class="chip" data-tech="brevo">Brevo</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="vercel">Vercel</button><button type="button" class="chip" data-tech="render">Render</button><button type="button" class="chip" data-tech="pytest">pytest</button><button type="button" class="chip" data-tech="pytest-asyncio">pytest-asyncio</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">frontend/package.json, backend/package.json, ai/requirements.txt</span></p>
+      </article>
+      <article class="proj">
+        <header class="proj-h">
+          <h3>Zorvyn<span class="mark mark-solo">solo build</span></h3>
+          <p class="role">Everything: the dashboard design, the chart components, the transactions model and the insights.</p>
+          <p class="links"><a href="https://finance-dashboard-nimit.vercel.app/" rel="noopener"><span class="mono">finance-dashboard-nimit.vercel.app</span></a> <a href="https://github.com/Nimit3418/Finance-Dashboard" rel="noopener"><span class="mono">Nimit3418/Finance-Dashboard</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="javascript">JavaScript</button></div></div>
+          <div class="layer"><span class="layer-l">Framework and UI</span><div class="chips"><button type="button" class="chip" data-tech="react-19">React 19</button><button type="button" class="chip" data-tech="vite">Vite</button><button type="button" class="chip" data-tech="tailwind-css-v4">Tailwind CSS v4</button><button type="button" class="chip" data-tech="tailwindcss-vite">@tailwindcss/vite</button><button type="button" class="chip" data-tech="recharts">Recharts</button><button type="button" class="chip" data-tech="framer-motion">Framer Motion</button><button type="button" class="chip" data-tech="lucide-react">lucide-react</button><button type="button" class="chip" data-tech="tailwind-merge">tailwind-merge</button></div></div>
+          <div class="layer"><span class="layer-l">Tooling</span><div class="chips"><button type="button" class="chip" data-tech="eslint-9">ESLint 9</button><button type="button" class="chip" data-tech="eslint-plugin-react-hooks">eslint-plugin-react-hooks</button><button type="button" class="chip" data-tech="eslint-plugin-react-refresh">eslint-plugin-react-refresh</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="vercel">Vercel</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">package.json</span></p>
+      </article>
+
+  <h2>Also live <span>&middot; smaller builds, still online</span></h2>
+      <article class="proj proj-sm">
+        <header class="proj-h">
+          <h3>Business Web App</h3>
+          <p class="role">React practice build, shipped.</p>
+          <p class="links"><a href="https://reactui-businesswebapp-nimit.netlify.app/" rel="noopener"><span class="mono">reactui-businesswebapp-nimit.netlify.app</span></a> <a href="https://github.com/Nimit3418/react-UI-project" rel="noopener"><span class="mono">Nimit3418/react-UI-project</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="javascript">JavaScript</button></div></div>
+          <div class="layer"><span class="layer-l">Framework and UI</span><div class="chips"><button type="button" class="chip" data-tech="react-19">React 19</button><button type="button" class="chip" data-tech="vite">Vite</button><button type="button" class="chip" data-tech="tailwind-css-v4">Tailwind CSS v4</button><button type="button" class="chip" data-tech="tailwindcss-vite">@tailwindcss/vite</button><button type="button" class="chip" data-tech="lucide-react">lucide-react</button></div></div>
+          <div class="layer"><span class="layer-l">Tooling</span><div class="chips"><button type="button" class="chip" data-tech="eslint-9">ESLint 9</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="netlify">Netlify</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">package.json</span></p>
+      </article>
+      <article class="proj proj-sm">
+        <header class="proj-h">
+          <h3>Cultural Club, Vedam</h3>
+          <p class="role">Club site for Vedam School of Technology.</p>
+          <p class="links"><a href="https://cultural-club1.vercel.app/" rel="noopener"><span class="mono">cultural-club1.vercel.app</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="html">HTML</button><button type="button" class="chip" data-tech="css">CSS</button></div></div>
+          <div class="layer"><span class="layer-l">Framework and UI</span><div class="chips"><button type="button" class="chip" data-tech="font-awesome-6-4">Font Awesome 6.4</button><button type="button" class="chip" data-tech="google-fonts-poppins">Google Fonts (Poppins)</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="vercel">Vercel</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">live build; no public repo under his account</span></p>
+      </article>
+      <article class="proj proj-sm">
+        <header class="proj-h">
+          <h3>Clicky Projects</h3>
+          <p class="role">Four small JavaScript apps in one page.</p>
+          <p class="links"><a href="https://nimits-clicky-projects.netlify.app/" rel="noopener"><span class="mono">nimits-clicky-projects.netlify.app</span></a> <a href="https://github.com/Nimit3418/small-projects" rel="noopener"><span class="mono">Nimit3418/small-projects</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="html">HTML</button><button type="button" class="chip" data-tech="css">CSS</button><button type="button" class="chip" data-tech="javascript">JavaScript</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="netlify">Netlify</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">repository tree: PROJECT.html, project.css, project.js</span></p>
+      </article>
+      <article class="proj proj-sm">
+        <header class="proj-h">
+          <h3>LeetCode Analytics</h3>
+          <p class="role">The build behind his first postmortem: finished before the API limits were checked.</p>
+          <p class="links"><a href="https://leetcodeuserextractor.netlify.app/" rel="noopener"><span class="mono">leetcodeuserextractor.netlify.app</span></a> <a href="https://github.com/Nimit3418/LeetcodeID-Extractor" rel="noopener"><span class="mono">Nimit3418/LeetcodeID-Extractor</span></a></p>
+        </header>
+        <div class="layers">
+          <div class="layer"><span class="layer-l">Language</span><div class="chips"><button type="button" class="chip" data-tech="html">HTML</button><button type="button" class="chip" data-tech="css">CSS</button><button type="button" class="chip" data-tech="javascript">JavaScript</button></div></div>
+          <div class="layer"><span class="layer-l">Data and auth</span><div class="chips"><button type="button" class="chip" data-tech="alfa-leetcode-api-rest">alfa-leetcode-api (REST)</button></div></div>
+          <div class="layer"><span class="layer-l">Infra</span><div class="chips"><button type="button" class="chip" data-tech="netlify">Netlify</button></div></div>
+        </div>
+        <p class="src">Read from <span class="mono">leet.js</span></p>
+      </article>
+
+  <h2>Not on the site yet <span>&middot; found in his GitHub</span></h2>
+  <div class="u-wrap">
+    <table class="u-table">
+      <thead><tr><th scope="col">Repository</th><th scope="col">Stack</th><th scope="col">Why it is worth listing</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">CampusX<span class="mono"><a href="https://github.com/Nimit3418/CampusX" rel="noopener">Nimit3418/CampusX</a></span></th><td>Next.js, TypeScript, Supabase (+ @supabase/ssr), shadcn/ui on Radix (30 primitives), Tailwind CSS, Framer Motion, three.js, @react-three/fiber, @react-three/drei, Spline, react-hook-form, Zod, Recharts, PLpgSQL, Vercel Analytics</td><td class="why">252 KB of TypeScript, the largest build not on the site</td></tr>
+        <tr><th scope="row">campus-pathfinder-quest<span class="mono"><a href="https://github.com/Nimit3418/campus-pathfinder-quest" rel="noopener">Nimit3418/campus-pathfinder-quest</a></span></th><td>React, TypeScript, Vite, shadcn/ui on Radix, TanStack Query, React Router, react-hook-form, Zod, Tailwind CSS, Vitest, Testing Library</td><td class="why">The only repo with a test suite</td></tr>
+        <tr><th scope="row">AlgoRise<span class="mono"><a href="https://github.com/Nimit3418/AlgoRise" rel="noopener">Nimit3418/AlgoRise</a></span></th><td>Next.js, React</td><td class="why">Team landing page</td></tr>
+        <tr><th scope="row">Vedam Semester 3, Machine Learning<span class="mono"><a href="https://github.com/Nimit3418/Vedam_Semester3_MachineLearning" rel="noopener">Nimit3418/Vedam_Semester3_MachineLearning</a></span></th><td>Python, Jupyter</td><td class="why">Coursework, but it is the ML evidence</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Every technology, counted</h2>
+  <div class="index" id="index"></div>
+
+  <footer class="foot">
+    <p>Sources: the repositories named under each project, their dependency manifests, and the deployed pages. Versions are the ones pinned in those manifests on 22 September 2026.</p>
+    <p>Where a project is shared work, the role line says which part is Nimit's. CampusCritique's stack includes the parts his co-founder owns, because they run in the same application.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.proj .chip'));
+  var counts = {}, labels = {};
+  chips.forEach(function (c) {
+    var k = c.dataset.tech;
+    counts[k] = (counts[k] || 0) + 1;
+    labels[k] = c.textContent;
+  });
+  var index = document.getElementById('index');
+  Object.keys(counts).sort(function (a, b) {
+    return counts[b] - counts[a] || labels[a].toLowerCase().localeCompare(labels[b].toLowerCase());
+  }).forEach(function (k) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.dataset.tech = k;
+    b.innerHTML = '<span></span><span class="n"></span>';
+    b.firstChild.textContent = labels[k];
+    b.lastChild.textContent = counts[k];
+    index.appendChild(b);
+  });
+
+  var all = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var projects = Array.prototype.slice.call(document.querySelectorAll('.proj'));
+  var idle = document.getElementById('bar-idle'), live = document.getElementById('bar-live');
+  var techEl = document.getElementById('bar-tech'), countEl = document.getElementById('bar-count');
+  var clearBtn = document.getElementById('bar-clear');
+  var active = null;
+
+  function apply() {
+    all.forEach(function (c) { c.classList.toggle('is-on', !!active && c.dataset.tech === active); });
+    projects.forEach(function (p) {
+      p.classList.toggle('is-dim', !!active && !p.querySelector('.chip[data-tech="' + active + '"]'));
+    });
+    document.body.classList.toggle('filtering', !!active);
+    idle.hidden = !!active; live.hidden = !active; clearBtn.hidden = !active;
+    if (active) {
+      var n = counts[active];
+      techEl.textContent = labels[active];
+      countEl.textContent = n + (n === 1 ? ' project' : ' projects');
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var c = e.target.closest ? e.target.closest('.chip') : null;
+    if (!c) return;
+    active = active === c.dataset.tech ? null : c.dataset.tech;
+    apply();
+  });
+  clearBtn.addEventListener('click', function () { active = null; apply(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && active) { active = null; apply(); } });
+})();
+</script>
