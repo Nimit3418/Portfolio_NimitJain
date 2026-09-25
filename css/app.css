@@ -27,7 +27,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { overflow-x: clip; }
+html, body { overflow-x: hidden; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
@@ -38,6 +38,7 @@ body {
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
 }
 /* paper grain: fixed, inert, barely there */
 body::before {
@@ -254,9 +255,10 @@ a.pill:hover { background: var(--ink); color: var(--paper); }
 
 .page-cs main { max-width: 900px; padding-bottom: 96px; }
 .cs { display: grid; gap: 44px; padding-top: 44px; }
+.cs > * { min-width: 0; }
 .crumb { font-size: 13.5px; color: var(--muted); }
 .crumb a { border-bottom: 1px solid var(--line-strong); }
-.cs h1 { font-size: clamp(2.8rem, 7vw, 5.2rem); letter-spacing: -.045em; line-height: .95; margin: 12px 0 14px; }
+.cs h1 { font-size: clamp(2rem, 9vw, 5.2rem); letter-spacing: -.045em; line-height: .95; margin: 12px 0 14px; overflow-wrap: break-word; hyphens: auto; }
 .cs-lead { font-size: 1.2rem; color: var(--muted); max-width: 52ch; }
 .cs-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 32px; margin-top: 30px; border-top: 1.5px solid var(--ink); padding-top: 20px; }
 .cs-meta .wide { grid-column: 1 / -1; }

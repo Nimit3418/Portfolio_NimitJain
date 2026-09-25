@@ -93,6 +93,7 @@ main { padding-top: 22px; }
   .stats dd { font-size: 1.6rem; }
   .ticker { border-radius: 12px; }
   main { padding-top: 14px; }
+  .page-cs .cs { padding: 20px 14px 32px; gap: 32px; }
 }
 
 
