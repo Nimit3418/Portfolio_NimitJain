@@ -27,7 +27,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { overflow-x: hidden; }
+html, body { overflow-x: clip; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
@@ -85,7 +85,8 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1.5px; background: var(--ink); transition: right 0.3s var(--ease); }
 .nav-links a:hover, .nav-links a.on { color: var(--ink); }
 .nav-links a:hover::after, .nav-links a.on::after { right: 0; }
-.nav-ask { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--paper); background: var(--ink); border: none; border-radius: 999px; padding: 10px 16px; cursor: pointer; transition: background 0.2s; }
+.nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.nav-ask { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--paper); background: var(--ink); border: none; border-radius: 999px; padding: 10px 16px; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
 .nav-ask:hover { background: var(--ink-2); }
 .nav kbd { display: none; font-family: var(--font-body); font-size: 10px; font-weight: 600; line-height: 1; color: var(--muted); background: var(--paper-2); border: 1px solid var(--line-strong); border-radius: 4px; padding: 3px 6px; margin-left: 8px; vertical-align: middle; box-shadow: 0 1px 1px rgba(0,0,0,0.02); }
 .nav-ask kbd { color: var(--on-ink-dim); border-color: rgba(244, 243, 239, 0.3); }
@@ -236,7 +237,7 @@ a.pill:hover { background: var(--ink); color: var(--paper); }
 
 /* changelog: sticky version numeral rolls as entries cross the middle of the screen; gold rail = reading progress */
 .cl { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; border-top: 1.5px solid var(--ink); }
-.cl-stick { position: sticky; top: 90px; align-self: start; padding-top: 22px; }
+.cl-stick { position: sticky; top: 90px; align-self: start; padding-top: 22px; z-index: 5; }
 .cl-big { position: relative; height: 1em; overflow: hidden; font-family: var(--font-display); font-size: clamp(3rem, 6.5vw, 5.4rem); font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; font-variant-numeric: tabular-nums; }
 .cl-big span { position: absolute; left: 0; top: 0; transform: translateY(110%); opacity: 0; transition: transform 0.45s var(--ease), opacity 0.3s; }
 .cl-big span.is-cur { transform: none; opacity: 1; }
@@ -250,6 +251,9 @@ a.pill:hover { background: var(--ink); color: var(--paper); }
 .cl-d b { color: var(--ink); font-weight: 600; }
 .cl-d em { display: block; font-style: normal; color: var(--ink); margin-top: 4px; font-size: 0.95rem; }
 .cl-d em::before { content: "Learned: "; color: var(--faint); }
+@media (min-width: 941px) {
+  .cl-row { padding: 34px 0; }
+}
 
 /* ============ CASE-STUDY PAGES ============ */
 
@@ -391,18 +395,8 @@ a.pill:hover { background: var(--ink); color: var(--paper); }
 
 .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13.5px; color: var(--on-ink-dim); border-top: 1px solid var(--on-ink-line); margin-top: 88px; padding-top: 22px; }
 
-/* ============ CURSOR · one solid disc, pointer devices only ============ */
-
-.cur { display: none; }
-@media (hover: hover) and (pointer: fine) {
-  html.has-cur, html.has-cur a, html.has-cur button, html.has-cur input, html.has-cur textarea, html.has-cur label, html.has-cur summary { cursor: none; }
-  .cur { display: block; position: fixed; left: 0; top: 0; z-index: 120; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #fff; mix-blend-mode: difference; pointer-events: none; transition: transform 0.3s var(--ease), opacity 0.2s, border-radius 0.2s; will-change: translate; }
-  .cur.is-link { transform: scale(3.2); }
-  .cur.is-row { transform: scale(4.6); }
-  .cur.is-text { transform: scaleX(0.15) scaleY(1.6); border-radius: 2px; }
-  .cur.is-down { transform: scale(0.7); }
-  .cur.is-out { opacity: 0; }
-}
+/* ============ CURSOR ============ */
+.cur { display: none !important; }
 
 /* ============ ASK · command palette that also answers questions ============ */
 
@@ -496,8 +490,11 @@ a.pill:hover { background: var(--ink); color: var(--paper); }
 
 @media (max-width: 640px) {
   main { padding: 0 18px; }
-  .nav { padding: 0 18px; }
+  .nav { padding: 0 10px 0 18px; }
   .nav-links { display: none; }
+  .nav-actions { gap: 6px; }
+  .nav-ask { padding: 8px 12px; font-size: 12px; }
+  .theme-toggle { padding: 6px; }
   .hero-top { flex-direction: column; gap: 8px; }
   .ticker { margin-top: 40px; }
   .sec { padding: 40px 0; }
@@ -551,16 +548,21 @@ html[data-theme="dark"] .dots-canvas {
   border: none;
   cursor: pointer;
   padding: 8px;
-  margin-left: 8px;
+  border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--ink);
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  opacity: 0.75;
+  transition: opacity 0.2s, background 0.2s;
+  flex-shrink: 0;
 }
 .theme-toggle:hover {
   opacity: 1;
+  background: rgba(0, 0, 0, 0.06);
+}
+html[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 .theme-toggle svg {
   width: 17px;

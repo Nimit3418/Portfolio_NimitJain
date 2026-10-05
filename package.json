@@ -6,7 +6,7 @@
     "node": ">=20.10"
   },
   "scripts": {
-    "dev": "python3 -m http.server 4174",
+    "dev": "npx -y http-server -a localhost -p 4000 -o",
     "dev:api": "vercel dev",
     "rag:index": "node rag/build-index.mjs",
     "rag:calibrate": "node rag/calibrate.mjs",

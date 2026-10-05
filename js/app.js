@@ -346,8 +346,27 @@ function initMotion() {
       if (when) when.textContent = rows[i].dataset.d;
     };
     setCur(0);
-    rows.forEach((row, i) => ScrollTrigger.create({ trigger: row, start: "top 50%", onEnter: () => setCur(i), onLeaveBack: () => setCur(Math.max(0, i - 1)) }));
-    if (rail && rowsBox) gsap.fromTo(rail, { height: 0 }, { height: () => rowsBox.offsetHeight, ease: "none", scrollTrigger: { trigger: rowsBox, start: "top 50%", end: "bottom 50%", scrub: 0.2, invalidateOnRefresh: true } });
+    rows.forEach((row, i) => ScrollTrigger.create({
+      trigger: row,
+      start: "top 55%",
+      onEnter: () => setCur(i),
+      onLeaveBack: () => setCur(Math.max(0, i - 1))
+    }));
+    const lastRow = rows[rows.length - 1];
+    if (rail && rowsBox && lastRow) {
+      const getRailHeight = () => (lastRow.offsetTop + lastRow.offsetHeight);
+      gsap.fromTo(rail, { height: 0 }, {
+        height: getRailHeight,
+        ease: "none",
+        scrollTrigger: {
+          trigger: rowsBox,
+          start: "top 55%",
+          end: () => `+=${getRailHeight()}`,
+          scrub: 0.2,
+          invalidateOnRefresh: true
+        }
+      });
+    }
   }
 
   /* one authored load sequence, on the hero only. Background tabs skip it. */

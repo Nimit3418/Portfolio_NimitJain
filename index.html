@@ -9,6 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nimit Jain · grid</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <meta name="description" content="Nimit Jain. Student, developer, co-founder of CampusCritique and creator in Pune. CS (AI) at Vedam School of Technology.">
   <meta name="theme-color" content="#f4f3ef">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -30,12 +31,14 @@
       <a href="#creator">Creator<kbd>2</kbd></a>
       <a href="about.html">About<kbd>3</kbd></a>
       <a href="#contact">Contact<kbd>4</kbd></a>
+    </nav>
+    <div class="nav-actions">
       <button class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-    </nav>
-    <button class="nav-ask" id="ask-open-nav" type="button" data-magnet aria-haspopup="dialog" aria-controls="palette">Ask me anything<kbd>/</kbd></button>
+      <button class="nav-ask" id="ask-open-nav" type="button" data-magnet aria-haspopup="dialog" aria-controls="palette">Ask me anything<kbd>/</kbd></button>
+    </div>
     <i class="nav-progress" id="nav-progress" aria-hidden="true"></i>
   </header>
 
@@ -66,7 +69,6 @@
     <section class="hero" id="hero">
       <div class="hero-top">
         <p class="hero-eyebrow"><i class="live"></i>Open to internships</p>
-        <p class="hero-side">CS (AI) at Vedam, Pune</p>
       </div>
 
       <div class="hero-stage">
@@ -133,279 +135,58 @@
       </header>
       <div class="filters" role="group" aria-label="Filter projects"><button type="button" class="fchip" data-filter="all" aria-pressed="true">All</button><button type="button" class="fchip" data-filter="ai" aria-pressed="false">AI / ML</button><button type="button" class="fchip" data-filter="fullstack" aria-pressed="false">Full stack</button><button type="button" class="fchip" data-filter="product" aria-pressed="false">Product</button><button type="button" class="fchip" data-filter="hackathon" aria-pressed="false">Hackathons</button><span class="fcount" data-shown>5 shown</span></div>
       <div class="plist" data-project-list>
-        <article class="prow" data-keys="all fullstack product" data-reveal>
-          <a href="work/campuscritique.html" class="prow-link" aria-hidden="true" tabindex="-1"></a>
-          <div class="prow-img-wrap"><img src="assets/img/campuscritique.png" alt="CampusCritique" loading="lazy"></div>
+        <article class="prow" data-keys="all fullstack product" data-shot="assets/img/campuscritique.png" data-reveal>
           <div class="prow-main">
             <h3 class="prow-t"><span class="prow-idx">01</span><a href="work/campuscritique.html">CampusCritique</a><a class="pill" href="work/campuscritique.html#measured" title="Has a measured table with sources">measured</a></h3>
             <p class="prow-s">College discovery platform I co-founded. Verified reviews, real placement data, paid sessions with seniors.</p>
-            <div class="prow-meta">
-              <div class="prow-icons">
-                <img src="https://cdn.simpleicons.org/typescript" width="16" height="16" alt="TypeScript">
-                <img src="https://cdn.simpleicons.org/nodedotjs" width="16" height="16" alt="Node.js">
-                <img src="https://cdn.simpleicons.org/nextdotjs" width="16" height="16" alt="Next.js">
-                <img src="https://cdn.simpleicons.org/react" width="16" height="16" alt="React">
-                <img src="https://cdn.simpleicons.org/tailwindcss" width="16" height="16" alt="Tailwind CSS">
-                <img src="https://cdn.simpleicons.org/supabase" width="16" height="16" alt="Supabase">
-                <img src="https://cdn.simpleicons.org/vercel" width="16" height="16" alt="Vercel">
-              </div>
-              <ul class="prow-tags"><li>PRODUCT</li><li>FULL STACK</li><li>LIVE</li></ul>
-            </div>
+            <div class="prow-meta"><span class="prow-stack">Next.js, React, Supabase, Tailwind</span><ul class="prow-tags"><li>Product</li><li>Full stack</li><li>Live</li></ul></div>
             <div class="prow-cta"><a href="work/campuscritique.html">Case study</a><a href="https://campuscritique.in" rel="noopener">Live</a></div>
           </div>
           <div class="prow-r"><span class="prow-v">1,100+</span><span class="prow-c">Unique visitors</span></div>
         </article>
-        <article class="prow" data-keys="all ai fullstack hackathon" data-reveal>
-          <a href="work/oilspill.html" class="prow-link" aria-hidden="true" tabindex="-1"></a>
-          <div class="prow-img-wrap"><img src="assets/img/oilspill-2.jpeg" alt="Oil Spill Detection" loading="lazy"></div>
+        <article class="prow" data-keys="all ai fullstack hackathon" data-shot="assets/img/oilspill-2.jpeg" data-reveal>
           <div class="prow-main">
             <h3 class="prow-t"><span class="prow-idx">02</span><a href="work/oilspill.html">Oil Spill Detection</a><a class="pill" href="work/oilspill.html#measured" title="Has a measured table with sources">measured</a></h3>
             <p class="prow-s">Maritime console that detects oil slicks in satellite radar, backtracks drift, and ranks the vessel that caused it.</p>
-            <div class="prow-meta">
-              <div class="prow-icons">
-                <img src="https://cdn.simpleicons.org/python" width="16" height="16" alt="Python">
-                <img src="https://cdn.simpleicons.org/fastapi" width="16" height="16" alt="FastAPI">
-                <img src="https://cdn.simpleicons.org/react" width="16" height="16" alt="React">
-                <img src="https://cdn.simpleicons.org/pytorch" width="16" height="16" alt="PyTorch">
-                <img src="https://cdn.simpleicons.org/docker" width="16" height="16" alt="Docker">
-              </div>
-              <ul class="prow-tags"><li>AI / ML</li><li>BACKEND</li><li>HACKATHON</li></ul>
-            </div>
+            <div class="prow-meta"><span class="prow-stack">Python, FastAPI, AIS data</span><ul class="prow-tags"><li>AI / ML</li><li>Backend</li><li>Hackathon</li></ul></div>
             <div class="prow-cta"><a href="work/oilspill.html">Case study</a><a href="https://github.com/TrueMan08/Team_AlgoRise_OilSpill_detection" rel="noopener">GitHub</a></div>
           </div>
           <div class="prow-r"><span class="prow-v">1st</span><span class="prow-c">Internal round result</span></div>
         </article>
-        <article class="prow" data-keys="all ai fullstack hackathon" data-reveal>
-          <a href="work/askmynotes.html" class="prow-link" aria-hidden="true" tabindex="-1"></a>
-          <div class="prow-img-wrap"><img src="assets/img/askmynotes.png" alt="AskMyNotes AI" loading="lazy"></div>
+        <article class="prow" data-keys="all ai fullstack hackathon" data-shot="assets/img/askmynotes.png" data-reveal>
           <div class="prow-main">
             <h3 class="prow-t"><span class="prow-idx">03</span><a href="work/askmynotes.html">AskMyNotes AI</a><a class="pill" href="work/askmynotes.html#measured" title="Has a measured table with sources">measured</a></h3>
             <p class="prow-s">A subject-scoped tutor that answers only from the notes you upload, with citations to the page.</p>
-            <div class="prow-meta">
-              <div class="prow-icons">
-                <img src="https://cdn.simpleicons.org/javascript" width="16" height="16" alt="JavaScript">
-                <img src="https://cdn.simpleicons.org/nextdotjs" width="16" height="16" alt="Next.js">
-                <img src="https://cdn.simpleicons.org/react" width="16" height="16" alt="React">
-                <img src="https://cdn.simpleicons.org/supabase" width="16" height="16" alt="Supabase">
-                <img src="https://cdn.simpleicons.org/langchain" width="16" height="16" alt="LangChain">
-              </div>
-              <ul class="prow-tags"><li>AI / ML</li><li>FULL STACK</li><li>HACKATHON</li></ul>
-            </div>
+            <div class="prow-meta"><span class="prow-stack">JavaScript, Supabase, RAG</span><ul class="prow-tags"><li>AI / ML</li><li>Full stack</li><li>Hackathon</li></ul></div>
             <div class="prow-cta"><a href="work/askmynotes.html">Case study</a><a href="https://askmynotes-algorise.vercel.app/" rel="noopener">Live</a></div>
           </div>
           <div class="prow-r"><span class="prow-v">1st</span><span class="prow-c">Placing</span></div>
         </article>
-        <article class="prow" data-keys="all ai hackathon" data-reveal>
-          <a href="work/kisanmind.html" class="prow-link" aria-hidden="true" tabindex="-1"></a>
-          <div class="prow-img-wrap"><img src="assets/img/kisanmind.png" alt="KisanMind" loading="lazy"></div>
+        <article class="prow" data-keys="all ai hackathon" data-shot="assets/img/kisanmind.png" data-reveal>
           <div class="prow-main">
             <h3 class="prow-t"><span class="prow-idx">04</span><a href="work/kisanmind.html">KisanMind</a><a class="pill" href="work/kisanmind.html#measured" title="Has a measured table with sources">measured</a></h3>
             <p class="prow-s">Four LangGraph agents for Indian farmers, with Hindi and Marathi voice, built in 24 hours.</p>
-            <div class="prow-meta">
-              <div class="prow-icons">
-                <img src="https://cdn.simpleicons.org/typescript" width="16" height="16" alt="TypeScript">
-                <img src="https://cdn.simpleicons.org/python" width="16" height="16" alt="Python">
-                <img src="https://cdn.simpleicons.org/nextdotjs" width="16" height="16" alt="Next.js">
-                <img src="https://cdn.simpleicons.org/tailwindcss" width="16" height="16" alt="Tailwind CSS">
-                <img src="https://cdn.simpleicons.org/mongodb" width="16" height="16" alt="MongoDB">
-                <img src="https://cdn.simpleicons.org/langchain" width="16" height="16" alt="LangChain">
-              </div>
-              <ul class="prow-tags"><li>AI / ML</li><li>AGENTS</li><li>HACKATHON</li></ul>
-            </div>
+            <div class="prow-meta"><span class="prow-stack">Next.js, TypeScript, LangGraph</span><ul class="prow-tags"><li>AI / ML</li><li>Agents</li><li>Hackathon</li></ul></div>
             <div class="prow-cta"><a href="work/kisanmind.html">Case study</a><a href="https://altahackathon.vercel.app/" rel="noopener">Live</a><a href="https://github.com/Satyam087/AltaHack" rel="noopener">GitHub</a></div>
           </div>
           <div class="prow-r"><span class="prow-v">Top 2</span><span class="prow-c">Placing</span></div>
         </article>
-        <article class="prow" data-keys="all fullstack" data-reveal>
-          <a href="work/zorvyn.html" class="prow-link" aria-hidden="true" tabindex="-1"></a>
-          <div class="prow-img-wrap"><img src="assets/img/zorvyn.png" alt="Zorvyn" loading="lazy"></div>
+        <article class="prow" data-keys="all fullstack" data-shot="assets/img/zorvyn.png" data-reveal>
           <div class="prow-main">
             <h3 class="prow-t"><span class="prow-idx">05</span><a href="work/zorvyn.html">Zorvyn</a></h3>
             <p class="prow-s">Personal finance dashboard: income, expenses, savings rate, trends, and an insight line that nudges habits.</p>
-            <div class="prow-meta">
-              <div class="prow-icons">
-                <img src="https://cdn.simpleicons.org/javascript" width="16" height="16" alt="JavaScript">
-                <img src="https://cdn.simpleicons.org/react" width="16" height="16" alt="React">
-                <img src="https://cdn.simpleicons.org/vite" width="16" height="16" alt="Vite">
-                <img src="https://cdn.simpleicons.org/tailwindcss" width="16" height="16" alt="Tailwind CSS">
-              </div>
-              <ul class="prow-tags"><li>FRONTEND</li><li>SOLO</li></ul>
-            </div>
+            <div class="prow-meta"><span class="prow-stack">React, Charts</span><ul class="prow-tags"><li>Frontend</li><li>Solo</li></ul></div>
             <div class="prow-cta"><a href="work/zorvyn.html">Case study</a><a href="https://finance-dashboard-nimit.vercel.app/" rel="noopener">Live</a><a href="https://github.com/Nimit3418/Finance-Dashboard" rel="noopener">GitHub</a></div>
           </div>
           <div class="prow-r"><span class="prow-period">2026</span></div>
         </article>
       </div>
-
-      <div class="view-more-wrap" style="padding: 24px 0; text-align: center;">
-        <button id="viewMoreBtn" style="background: var(--ink); color: var(--paper); border: none; padding: 12px 28px; font-size: 14px; font-weight: 500; border-radius: 999px; cursor: pointer; transition: opacity 0.2s;">View more</button>
-      </div>
-      <div id="hiddenProjects" style="display: none;">
-
-      <article class="prow" data-keys="all frontend" data-reveal>
-        <div class="prow-main">
-          <h3 class="prow-t"><span class="prow-idx">06</span><a href="https://reactui-businesswebapp-nimit.netlify.app/" rel="noopener">Business Web App</a></h3>
-          <p class="prow-s">A professional landing page and business interface.</p>
-          <div class="prow-meta">
-            <div class="prow-icons">
-              <img src="https://cdn.simpleicons.org/javascript" width="16" height="16" alt="JavaScript">
-              <img src="https://cdn.simpleicons.org/react" width="16" height="16" alt="React">
-              <img src="https://cdn.simpleicons.org/vite" width="16" height="16" alt="Vite">
-              <img src="https://cdn.simpleicons.org/tailwindcss" width="16" height="16" alt="Tailwind CSS">
-              <img src="https://cdn.simpleicons.org/netlify" width="16" height="16" alt="Netlify">
-            </div>
-            <ul class="prow-tags"><li>FRONTEND</li><li>REACT</li></ul>
-          </div>
-          <div class="prow-cta"><a href="https://reactui-businesswebapp-nimit.netlify.app/" rel="noopener">Live</a><a href="https://github.com/Nimit3418/react-UI-project" rel="noopener">GitHub</a></div>
-        </div>
-        <div class="prow-r"><span class="prow-period">2026</span></div>
-      </article>
-
-      <article class="prow" data-keys="all frontend" data-reveal>
-        <div class="prow-main">
-          <h3 class="prow-t"><span class="prow-idx">07</span><a href="https://cultural-club1.vercel.app/" rel="noopener">Cultural Club, Vedam</a></h3>
-          <p class="prow-s">Official website and portal for the college cultural club.</p>
-          <div class="prow-meta">
-            <div class="prow-icons">
-              <img src="https://cdn.simpleicons.org/html5" width="16" height="16" alt="HTML5">
-              <img src="https://cdn.simpleicons.org/css" width="16" height="16" alt="CSS3">
-              <img src="https://cdn.simpleicons.org/vercel" width="16" height="16" alt="Vercel">
-            </div>
-            <ul class="prow-tags"><li>FRONTEND</li><li>CLUB</li></ul>
-          </div>
-          <div class="prow-cta"><a href="https://cultural-club1.vercel.app/" rel="noopener">Live</a></div>
-        </div>
-        <div class="prow-r"><span class="prow-period">2026</span></div>
-      </article>
-
-      <article class="prow" data-keys="all frontend" data-reveal>
-        <div class="prow-main">
-          <h3 class="prow-t"><span class="prow-idx">08</span><a href="https://nimits-clicky-projects.netlify.app/" rel="noopener">Clicky Projects</a></h3>
-          <p class="prow-s">Four small JavaScript apps in one page.</p>
-          <div class="prow-meta">
-            <div class="prow-icons">
-              <img src="https://cdn.simpleicons.org/html5" width="16" height="16" alt="HTML5">
-              <img src="https://cdn.simpleicons.org/css" width="16" height="16" alt="CSS3">
-              <img src="https://cdn.simpleicons.org/javascript" width="16" height="16" alt="JavaScript">
-              <img src="https://cdn.simpleicons.org/netlify" width="16" height="16" alt="Netlify">
-            </div>
-            <ul class="prow-tags"><li>FRONTEND</li><li>MINI-GAMES</li></ul>
-          </div>
-          <div class="prow-cta"><a href="https://nimits-clicky-projects.netlify.app/" rel="noopener">Live</a><a href="https://github.com/Nimit3418/small-projects" rel="noopener">GitHub</a></div>
-        </div>
-        <div class="prow-r"><span class="prow-period">2026</span></div>
-      </article>
-
-      <article class="prow" data-keys="all fullstack" data-reveal>
-        <div class="prow-main">
-          <h3 class="prow-t"><span class="prow-idx">09</span><a href="https://leetcodeuserextractor.netlify.app/" rel="noopener">LeetCode Analytics</a></h3>
-          <p class="prow-s">Extracts and visualizes user progress and stats from LeetCode profiles.</p>
-          <div class="prow-meta">
-            <div class="prow-icons">
-              <img src="https://cdn.simpleicons.org/html5" width="16" height="16" alt="HTML5">
-              <img src="https://cdn.simpleicons.org/css" width="16" height="16" alt="CSS3">
-              <img src="https://cdn.simpleicons.org/javascript" width="16" height="16" alt="JavaScript">
-              <img src="https://cdn.simpleicons.org/netlify" width="16" height="16" alt="Netlify">
-            </div>
-            <ul class="prow-tags"><li>FRONTEND</li><li>API</li></ul>
-          </div>
-          <div class="prow-cta"><a href="https://leetcodeuserextractor.netlify.app/" rel="noopener">Live</a><a href="https://github.com/Nimit3418/LeetcodeID-Extractor" rel="noopener">GitHub</a></div>
-        </div>
-        <div class="prow-r"><span class="prow-period">2026</span></div>
-      </article>
-      </div>
-
-    </section>
-
-    <section class="sec" id="results">
-      <style>
-        .res-acc { display: flex; flex-direction: column; gap: 0; }
-        .res-item { border-bottom: 1px solid var(--line); }
-        .res-item:first-child { border-top: 1px solid var(--line); }
-        .res-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; cursor: pointer; gap: 16px; -webkit-user-select: none; user-select: none; }
-        .res-head:hover .res-title { color: var(--ink); }
-        .res-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); transition: color 0.2s; flex: 1; }
-        .res-meta { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-        .res-date { font-size: 0.8rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; }
-        .res-badge { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; color: var(--gold); border: 1.5px solid var(--gold); border-radius: 999px; padding: 3px 12px; white-space: nowrap; background: rgba(201, 169, 97, 0.08); }
-        .res-chevron { width: 20px; height: 20px; color: var(--faint); transition: transform 0.3s ease; flex-shrink: 0; }
-        .res-item.is-open .res-chevron { transform: rotate(180deg); }
-        .res-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; padding: 0 0 0 0; }
-        .res-item.is-open .res-body { padding: 0 0 24px 0; }
-        .res-body-inner { color: var(--muted); font-size: 1.05rem; line-height: 1.6; max-width: 65ch; }
-        .res-body-inner strong { color: var(--ink); font-weight: 600; font-family: var(--font-display); letter-spacing: -0.01em; }
-      </style>
-      <header class="sec-head">
-        <h2 class="sec-title" data-mask>Results</h2>
-        <p class="sec-lede">Measured evidence behind the hackathons, products, and milestones.</p>
-      </header>
-      <div class="res-acc" data-reveal>
-
-        <div class="res-item">
-          <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">1st Place, Noesis Hackathon - AskMyNotes AI</span>
-            <span class="res-meta">
-              <span class="res-badge">1st of ~50</span>
-              <span class="res-date">Mar 2026</span>
-              <svg class="res-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </div>
-          <div class="res-body">
-            <div class="res-body-inner">
-              8-hour sprint, ~50 teams, shortlisted to top 10 for live judging. Built a <strong>RAG-powered study assistant</strong> that lets students upload notes and ask questions against them. I owned authentication end-to-end and the user-facing frontend. When the WiFi dropped minutes before submission, we split debugging across the team and presented calm. <strong>₹50K prize pool.</strong> The takeaway: division of work beats heroics.
-            </div>
-          </div>
-        </div>
-
-        <div class="res-item">
-          <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">1st Rank, SIH 2026 Internal Round - Oil Spill Detection</span>
-            <span class="res-meta">
-              <span class="res-badge">1st</span>
-              <span class="res-date">Sep 2026</span>
-              <svg class="res-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </div>
-          <div class="res-body">
-            <div class="res-body-inner">
-              Smart India Hackathon internal qualifier, Team AlgoRise (4 members). I built the <strong>AIS track reconstruction and vessel attribution module</strong> - given a detected spill, the system runs counterfactual forward simulations to rank which vessel likely caused it. All 3 attribution test cases passed. <strong>National round ahead.</strong> The takeaway: run the counterfactual, not just the backtrack.
-            </div>
-          </div>
-        </div>
-
-        <div class="res-item">
-          <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">Top 2 of ~40 Teams, HackWarts - KisanMind</span>
-            <span class="res-meta">
-              <span class="res-badge">Top 2</span>
-              <span class="res-date">Apr 2026</span>
-              <svg class="res-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </div>
-          <div class="res-body">
-            <div class="res-body-inner">
-              24-hour hackathon at Alta School of Technology. Built an <strong>AI-powered agricultural advisor</strong> using 4 LangGraph agents with Hindi and Marathi voice support (Groq Whisper STT + Sarvam AI TTS). I built the Next.js frontend and wired live agent output into the UI. Voice in the farmer's own language was the feature judges remembered. The takeaway: reach is a feature.
-            </div>
-          </div>
-        </div>
-
-        <div class="res-item">
-          <div class="res-head" onclick="this.parentElement.classList.toggle('is-open'); var b=this.nextElementSibling; if(this.parentElement.classList.contains('is-open')){b.style.maxHeight=b.scrollHeight+'px'}else{b.style.maxHeight='0'}">
-            <span class="res-title">Co-founded CampusCritique - 1,100+ Visitors</span>
-            <span class="res-meta">
-              <span class="res-badge">Live</span>
-              <span class="res-date">May 2026 –</span>
-              <svg class="res-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </div>
-          <div class="res-body">
-            <div class="res-body-inner">
-              College discovery platform with verified reviews, real placement data, and paid one-to-one mentorship sessions. <strong>80+ sign-ups, 7 institutions listed, 53% traffic from organic search.</strong> I own product, growth, branding, partnerships, and built the auth, review, and booking workflows. Satyam handles payments and infrastructure. The takeaway: distribution beats features.
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <p class="more" data-reveal>Also live:
+        <a class="uline" href="https://reactui-businesswebapp-nimit.netlify.app/">Business Web App</a>,
+        <a class="uline" href="https://cultural-club1.vercel.app/">Cultural Club for Vedam</a>,
+        <a class="uline" href="https://nimits-clicky-projects.netlify.app/">Clicky Projects</a>,
+        <a class="uline" href="https://leetcodeuserextractor.netlify.app/">LeetCode Analytics</a>.
+      </p>
     </section>
 
     <section class="sec" id="changelog">
@@ -575,8 +356,6 @@
 
   </main>
 
-  <!-- ================= CURSOR (pointer devices only) ================= -->
-  <div class="cur" id="cur" aria-hidden="true"></div>
 
   <!-- ================= KEYBOARD MAP (press ?) ================= -->
   <div class="kbd-map" id="kbd-map" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts" hidden>
