@@ -51,8 +51,13 @@ main { padding-top: 22px; }
 .plist { border-top: none; display: grid; gap: 12px; }
 .prow { border: 1px solid var(--line); border-radius: 10px; padding: 24px 22px; background: var(--prow-bg, rgba(255, 255, 255, 0.45)); transition: border-color 0.25s, background 0.25s, padding-left 0.35s var(--ease); }
 .prow:hover, .prow.is-focus { border-color: var(--ink); background: var(--prow-hover, #fff); padding-left: 30px; }
-.more { margin-top: 24px; }
-
+.more-container { margin-top: 24px; }
+.view-more-btn { font-family: var(--font-body); font-size: 14px; font-weight: 500; padding: 10px 20px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; transition: all .2s; }
+.view-more-btn:hover { border-color: var(--ink); color: var(--ink); }
+.extras-list { display: grid; gap: 12px; margin-top: 16px; }
+.extras-list[hidden] { display: none; }
+.prow-small { border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; background: var(--prow-bg, rgba(255, 255, 255, 0.45)); transition: border-color 0.25s, background 0.25s, padding-left 0.35s var(--ease); }
+.prow-small:hover { border-color: var(--ink); background: var(--prow-hover, #fff); padding-left: 28px; }
 /* changelog: same sticky numeral, on the sheet */
 .cl { border-top: none; }
 .cl-rows { padding-left: 26px; }

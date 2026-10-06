@@ -217,6 +217,24 @@ function initDots(fig, { scroll }) {
   });
 })();
 
+/* ---------- extras toggle: view more projects ---------- */
+(() => {
+  const btn = document.getElementById("view-more-btn");
+  const list = document.getElementById("extras-list");
+  if (!btn || !list) return;
+  const originalText = btn.textContent;
+  btn.addEventListener("click", () => {
+    const isHidden = list.hasAttribute("hidden");
+    if (isHidden) {
+      list.removeAttribute("hidden");
+      btn.textContent = "View fewer projects";
+    } else {
+      list.setAttribute("hidden", "");
+      btn.textContent = originalText;
+    }
+  });
+})();
+
 /* ---------- now line: "updated N days ago", the date itself past 30 days ---------- */
 (() => {
   const t = document.querySelector("[data-now-updated]");
